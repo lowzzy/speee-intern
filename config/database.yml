@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: sample_development
+  database: intern_sep_2021_2_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: sample_test
+  database: intern_sep_2021_2_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: sample_production
+  database: intern_sep_2021_2_production
   username: <%= ENV['MYSQL_USER']%>
   password: <%= ENV['MYSQL_PASSWORD'] %>
