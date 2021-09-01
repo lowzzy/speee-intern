@@ -1,0 +1,52 @@
+name: test
+on: [push]
+
+jobs:
+  test-rails:
+    runs-on: ubuntu-latest
+    services:
+      db:
+        volumes:
+          - db:/var/lib/mysql
+        image: mysql:5.7
+        env:
+          MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    container:
+      image: ruby:2.7.4
+    env:
+      RAILS_ENV: test
+      MYSQL_HOST: 'db'
+      MYSQL_USER: 'root'
+      BASIC_AUTH_USER: 'username'
+      BASIC_AUTH_PASSWORD: 'password'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: bundle-${{ hashFiles('Gemfile.lock') }}
+      - uses: actions/cache@v2
+        with:
+          path: node_modules/
+          key: node-dependencies-${{ hashFiles('yarn.lock') }}
+      - name: Install yarn and node
+        run: |
+          curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
+          apt-get install -y nodejs
+          npm install -g yarn
+          yarn install
+      - name: Install ruby dependencies
+        run: |
+          gem install bundler
+          bundle --path vendor/bundle
+          bundle update --bundler
+          bundle install --quiet --jobs 4 --retry 3
+      - name: Setup Database
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
+      - name: Run tests
+        run: |
+          bundle exec rails test
