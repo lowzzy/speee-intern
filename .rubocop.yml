@@ -1,0 +1,4 @@
+AllCops:
+  #除外ディレクトリ
+  Exclude:
+  - bin/*
