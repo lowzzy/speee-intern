@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
     #     root
       when AdminUser
           # AdminPages コントローラーで作ったhomeページへのpath
-          admin_pages_home_path
+          admin_pages_path
       end
   end
 end
