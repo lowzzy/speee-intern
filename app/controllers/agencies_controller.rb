@@ -3,8 +3,7 @@ class AgenciesController < ApplicationController
     @agencies = Agency.all
   end
 
-  def registration
-  end
+  def registration; end
 
   def create
     @agency = Agency.create(agency_params)
