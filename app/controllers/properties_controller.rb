@@ -9,11 +9,11 @@ class PropertiesController < ApplicationController
   def create
     @property = Property.new(property_params)
     if @property.save
-      flash[:info] = "登録が完了しました"
+      flash[:info] = '登録が完了しました'
       redirect_to price_property_url(@property.id)
     else
       flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.first}"
-      redirect_to property_registration_path	
+      redirect_to property_registration_path
     end
   end
 
