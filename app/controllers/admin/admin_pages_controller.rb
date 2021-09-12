@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Admin::AdminPagesController < AdminController
-  def home; end
+module Admin
+  class AdminPagesController < AdminController
+    def home; end
 
-  def question; end
+    def question; end
+  end
 end
