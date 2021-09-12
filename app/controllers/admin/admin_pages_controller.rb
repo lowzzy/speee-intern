@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AdminPagesController < ApplicationController
+class Admin::AdminPagesController < AdminController
   def home; end
 
   def question; end
