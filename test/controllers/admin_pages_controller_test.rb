@@ -4,7 +4,7 @@ require 'test_helper'
 
 class AdminPagesControllerTest < ActionDispatch::IntegrationTest
   test 'should get home' do
-    get admin_pages_home_url
+    get admin_pages_url
     assert_response :success
   end
 end
