@@ -2,6 +2,5 @@
 
 class HomeController < ApplicationController
   # 最初の画面表示　
-  def index
-  end
+  def index; end
 end
