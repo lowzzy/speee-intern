@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  def index
-    render plain: 'ok'
-  end
+  # 最初の画面表示　
+  def index; end
 end

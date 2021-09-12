@@ -41,8 +41,8 @@ docker-compose run --rm app rubocop
 https://sep2021-2.intern.speee.in
 
 ## 開発方針
-基本的にTDD（テスト駆動開発）で進める。<br>
-ModelとControllerのテストのみ行い、その他テスト（統合テスト・システムテスト）は行わない。
+<b>9/12更新</b>
+このままでは当初の見積もり通りの開発が困難と判断したため、テストは基本書かずに進める。
 
 今後の進捗管理にはGithub Projectsを使用する。
 毎日開発前にその日やる開発（イシュー）とその担当を決め、Today's tasks に移動させて始める。
@@ -64,3 +64,4 @@ ModelとControllerのテストのみ行い、その他テスト（統合テス�
 ```
 rubocop -A
 ```
+上記コマンドでフォーマットを実行できる。
