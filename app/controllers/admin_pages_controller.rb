@@ -1,7 +1,7 @@
-class AdminPagesController < ApplicationController
-  def home
-  end
+# frozen_string_literal: true
 
-  def question
-  end
+class AdminPagesController < ApplicationController
+  def home; end
+
+  def question; end
 end
