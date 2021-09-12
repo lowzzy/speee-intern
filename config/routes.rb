@@ -11,6 +11,11 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  
   resources :users, only: %i[show]
+
+  devise_for :admin_users, controllers: {
+    sessions: 'admin_users/sessions',
+    passwords: 'admin_users/passwords',
+    registrations: 'admin_users/registrations'
+  }
 end
