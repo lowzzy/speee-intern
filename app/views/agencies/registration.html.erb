@@ -1,0 +1,18 @@
+<h1>不動産会社を登録</h1>
+<%= form_with model: @agency do |form| %>
+  <%= form.label :name, "会社名" %>
+  <%= form.text_field :name %>
+  <br><br>
+  <%= form.label :email, "メール" %>
+  <%= form.email_field :email %>
+  <br><br>
+  <%= form.label :tel, "電話番号" %>
+  <%= form.text_field :tel %>
+  <br><br>
+  <%= form.label :address, "住所" %>
+  <%= form.text_field :address %>
+  <br><br>
+  <%= form.submit "送信" %>
+<% end %>
+<br><br>
+<%= link_to "戻る", "/agencies/home" %>
