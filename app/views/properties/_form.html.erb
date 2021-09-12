@@ -15,21 +15,23 @@
     <%= form.label '駅' %>
     <%= form.text_field :station %>
   </div>
-  <div >
-    <%= form.label '間取り' %>
-    <%= form.text_field :floor_plan %>
+  <%# 
+  <div>
+    <%= form.label '間取り' 
+    <%= form.text_field :floor_plan 
   </div>
   <div >
-    <%= form.label '平米数' %>
-    <%= form.text_field :square_measure %>
+    <%= form.label '平米数' 
+    <%= form.text_field :square_measure 
   </div>
   <div >
-    <%= form.label '住居形態' %>
-    <%= form.select :construction_type, [["一軒家", 0],["マンション", 1],["アパート", 2]] %>
+    <%= form.label '住居形態' 
+    <%= form.select :construction_type, [["一軒家", 0],["マンション", 1],["アパート", 2]] 
   </div>
   <div >
-    <%= form.label '材質' %>
-    <%= form.select :material_type , [["木造", 0],["鉄筋", 1]]%>
-  </div>
+    <%= form.label '材質' 
+    <%= form.select :material_type , [["木造", 0],["鉄筋", 1]]
+  </div> 
+  %>
   <%= form.submit %>
 <% end %>
