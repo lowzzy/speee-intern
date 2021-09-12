@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'agencies/home'
-  get 'agencies/registration'
-  post 'agencies/registration' => 'agencies#create'
+  namespace :admin do
+    get '/agencies/index'
+    get '/agencies/registration'
+    post '/agencies/registration' => 'agencies#create'
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'home#index'
 
