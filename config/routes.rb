@@ -3,4 +3,10 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   mount KomachiHeartbeat::Engine => '/ops'
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
 end
