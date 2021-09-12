@@ -7,8 +7,14 @@ class PropertiesController < ApplicationController
   end
 
   def create
-    @property = Property.create(property_params)
-    redirect_to price_property_url(@property.id)
+    @property = Property.new(property_params)
+    if @property.save
+      flash[:info] = "登録が完了しました"
+      redirect_to price_property_url(@property.id)
+    else
+      flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.first}"
+      redirect_to property_registration_path	
+    end
   end
 
   def price; end
