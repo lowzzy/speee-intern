@@ -10,18 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_12_072140) do
-
-  create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.string "email"
-    t.string "tel"
-    t.string "address"
-=======
-ActiveRecord::Schema.define(version: 2021_09_11_104055) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,7 +22,15 @@ ActiveRecord::Schema.define(version: 2021_09_11_104055) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
->>>>>>> origin
+  end
+
+  create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.string "email"
+    t.string "tel"
+    t.string "address"
   end
 
 end

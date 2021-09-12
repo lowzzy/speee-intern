@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AgenciesController < ApplicationController
   def home
     @agencies = Agency.all
