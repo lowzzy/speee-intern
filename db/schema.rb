@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,5 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_09_12_073515) do
+
+  create_table "properties", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "age"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "station"
+    t.string "floor_plan"
+    t.integer "square_measure"
+    t.integer "construction_type"
+    t.integer "material_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 end
