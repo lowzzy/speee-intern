@@ -2,8 +2,14 @@
 
 require 'test_helper'
 
-class AgenciesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
+class AgenciesControllerTest < ActionDispatch::IntegrationTes
+  # test 'should get home' do
+  #   get agencies_home_url
+  #   assert_response :success
+  # end
+
+  # test 'should get registration' do
+  #   get agencies_registration_url
+  #   assert_response :success
   # end
 end
