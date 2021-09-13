@@ -22,5 +22,4 @@ class ApplicationController < ActionController::Base
       admin_root_path
     end
   end
-
 end
