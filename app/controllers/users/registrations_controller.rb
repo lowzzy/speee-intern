@@ -51,20 +51,14 @@ module Users
     #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
     # end
 
-    # The path used after sign up.
-    # def after_sign_up_path_for(resource)
-    #   user_pages_agree_path
-    # end
-
     # The path used after sign up for inactive accounts.
     # def after_inactive_sign_up_path_for(resource)
     #   user_pages_agree_path
     # end
-    
+
     def after_sign_up_path_for(resource)
       case  resource
       when User
-        binding.pry
         user_pages_agree_path
       when AdminUser
         admin_root
