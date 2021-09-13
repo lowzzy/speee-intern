@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class AgenciesControllerTest < ActionDispatch::IntegrationTes
+class AgenciesControllerTest < ActionDispatch::IntegrationTest
   # test 'should get home' do
   #   get agencies_home_url
   #   assert_response :success
