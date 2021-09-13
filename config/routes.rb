@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'user_pages/home' # userのhome画面
+  get 'user_pages/agree' # 鍵などの合意画面
+  
   namespace :admin do
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
