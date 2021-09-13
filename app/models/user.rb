@@ -9,5 +9,4 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :tel, presence: true
-  validates :status, default: 0
 end
