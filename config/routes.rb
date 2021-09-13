@@ -23,4 +23,11 @@ Rails.application.routes.draw do
     passwords: 'admin_users/passwords',
     registrations: 'admin_users/registrations'
   }
+
+  namespace 'api' do
+    namespace 'v1' do
+      get 'prefectures', to: 'prefectures#list'
+      get 'cities', to: 'cities#list'
+    end
+  end
 end

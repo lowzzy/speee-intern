@@ -1,15 +1,13 @@
+<%= javascript_pack_tag 'property/property_registration' %>
+
 <%= form_with model: Property.new do |form| %>
   <div >
-    <%= form.label '築年数' %>
-    <%= form.text_field :age %>
-  </div>
-  <div >
     <%= form.label '都道府県' %>
-    <%= form.select :prefecture,  @prefectures_list %>
+    <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
   </div>
-  <div >
+  <div id="city_select">
     <%= form.label '都市' %>
-    <%= form.text_field :city %>
+    <%= form.select :city ,[[]] ,id: 'city' %>
   </div>
   <div >
     <%= form.label '駅' %>
