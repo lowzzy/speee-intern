@@ -12,12 +12,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:tel])
   end
 
-  # def after_sign_in_path_for(resource)
-  #     case resource
-  #     # when User
-  #         # UserPages コントローラーで作ったhomeページへのpath
-  #     when AdminUser
-  #         # AdminPages コントローラーで作ったhomeページへのpath
-  #     end
-  # end
+  def after_sign_in_path_for(resource)
+    case resource
+    #   when User
+    #     #   admin_pages_home_path
+    #     root
+    when AdminUser
+      # AdminPages コントローラーで作ったhomeページへのpath
+      admin_root_path
+    end
+  end
+
 end
