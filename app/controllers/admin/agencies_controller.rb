@@ -11,11 +11,16 @@ module Admin
     end
 
     def create
-      @agency = Agency.create(agency_params)
+      @agency = Agency.new(agency_params)
+      if @agency.save
+      else
+        # エラーの場合の処理
+        redirect_to admin_agencies_path
+      end
     end
 
     def agency_params
-      params.permit(:name, :email, :tel, :address)
+      params.require(:agency).permit(:name, :email, :tel, :address)
     end
   end
 end

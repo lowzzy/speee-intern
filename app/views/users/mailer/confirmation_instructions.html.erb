@@ -1,0 +1,5 @@
+<p>Welcome <%= @email %>!</p>
+
+<p>アカウントのEメールは、以下のリンクから確認できます：</p>
+
+<p><%= link_to 'アカウントの確認', confirmation_url(@resource, confirmation_token: @token) %></p>
