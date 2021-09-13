@@ -16,7 +16,6 @@ Rails.application.routes.draw do
       get :price, :properties
     end
   end
-  get 'property_registration', to: 'properties#new'
   mount KomachiHeartbeat::Engine => '/ops'
 
   devise_for :users, controllers: {
@@ -34,8 +33,7 @@ Rails.application.routes.draw do
 
   namespace 'api' do
     namespace 'v1' do
-      get 'prefectures', to: 'prefectures#list'
-      get 'cities', to: 'cities#list'
+      get 'cities', to: 'cities#index'
     end
   end
 end

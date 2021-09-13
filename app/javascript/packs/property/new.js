@@ -1,7 +1,7 @@
 
-window.addEventListener('DOMContentLoaded', function(){
+window.addEventListener('turbolinks:load', function(){
     // // input要素を取得
-    var select_state = document.getElementById("property_prefecture");
+    var select_state = document.getElementById("property_prefecture",);
     
     // // イベント「input」を登録
     select_state.addEventListener("change",async function(){

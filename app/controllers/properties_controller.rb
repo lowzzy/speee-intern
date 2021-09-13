@@ -7,13 +7,17 @@ class PropertiesController < ApplicationController
   end
 
   def create
+    
+    
     @property = Property.new(property_params)
     if @property.save
-      flash[:info] = '登録が完了しました'
+      flash.now[:info] = '登録が完了しました'
       redirect_to price_property_url(@property.id)
     else
-      flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.join('. ')}"
-      redirect_to property_registration_path
+      flash.now[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.join('. ')}"
+      binding.pry
+      prefectures_list
+      render :new
     end
   end
 
@@ -30,9 +34,5 @@ class PropertiesController < ApplicationController
 
   def prefectures_list
     @prefectures_list = Prefecture.all.pluck(:name, :id)
-  end
-
-  def city_list
-    @cities_list = @prefecture.cities.pluck(:name, :id)
   end
 end
