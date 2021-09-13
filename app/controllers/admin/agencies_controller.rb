@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
 module Admin
-  class AgenciesController < ApplicationController
+  class AgenciesController < AdminController
     def index
       @agencies = Agency.all
     end
 
-    def registration; end
+    def new
+      @agency = Agency.new
+    end
 
     def create
       @agency = Agency.create(agency_params)
