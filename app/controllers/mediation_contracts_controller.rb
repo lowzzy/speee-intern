@@ -13,7 +13,7 @@ class MediationContractsController < ApplicationController
     if @mediation_contract.save
       flash[:info] = '手続き継続に合意しました'
       redirect_to user_pages_home_url
-    else 
+    else
       redirect_to mediation_contract_new_url
     end
   end
