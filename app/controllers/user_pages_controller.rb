@@ -5,5 +5,6 @@ class UserPagesController < ApplicationController
   def home; end
 
   def agree; end
+
   def cancel; end
 end

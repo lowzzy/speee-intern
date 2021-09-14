@@ -10,16 +10,18 @@ class UsersController < ApplicationController
 
   # 委任契約同意アクション
   def delegation_contract
-    if params[:is_agree] == "true"
+    case params[:is_agree]
+    when 'true'
       current_user.update(status: :delegation_agreed)
       redirect_to agree_path
-    elsif params[:is_agree] == "false"
+    when 'false'
       current_user.update(status: :cancel)
       redirect_to cancel_path
     end
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :tel, :address, :password, :password_confirmation, :status)
   end
@@ -27,5 +29,4 @@ class UsersController < ApplicationController
   def user_delegation_params
     params.require(:user).permit(:status)
   end
-
 end
