@@ -1,0 +1,10 @@
+<h1>不動産会社との契約手続きについて</h1>
+<div class="agreement_form">
+    <%= form_with model: @mediation_contract, local: true do |form| %>
+        <%= form.check_box :agreement, as: :boolean, checked: false %>
+        <%= label_tag :agreement, "利用規約とプライバシーポリシーに同意します。" %>
+
+        <%= form.submit "手続きを進める", data: { disable_with: 'Submitting...' } %>
+    <% end %>
+    <%= link_to "手続きをキャンセル", "" %> <%# TODO: 契約キャンセルページにリダイレクト %>
+</div>
