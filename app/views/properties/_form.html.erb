@@ -1,0 +1,18 @@
+<%= javascript_pack_tag 'property/new' %>
+
+<%= form_with model: Property.new , local: true do |form| %>
+  <div >
+    <%= form.label '都道府県' %>
+    <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
+  </div>
+  <div id="city_select">
+    <%= form.label '都市' %>
+    <%= form.select :city ,[[]] ,id: 'city' %>
+  </div>
+  <div >
+    <%= form.label '駅' %>
+    <%= form.text_field :station %>
+  </div>
+  
+  <%= form.submit %>
+<% end %>
