@@ -2,4 +2,9 @@
 <p>Find me in app/views/users/show.html.erb</p>
 
 <h2>ユーザー詳細</h2>
+<p>email：<%= current_user.email %></p>
+<p>氏名：<%= current_user.name %></p>
+<p>住所：<%= current_user.address %></p>
+<p>電話番号：<%= current_user.tel %></p>
+
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
