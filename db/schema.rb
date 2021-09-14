@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,6 +46,31 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_mediation_contracts_on_user_id"
+  end
+
+  create_table "prefectures", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "properties", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "age"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "station"
+    t.string "floor_plan"
+    t.integer "square_measure"
+    t.integer "construction_type"
+    t.integer "material_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "towns", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "city_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
