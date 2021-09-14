@@ -16,3 +16,6 @@ Style/AsciiComments:
 # ドキュメントの無い public class を許可する
 Style/Documentation:
   Enabled: false
+
+Metrics/AbcSize:
+  Max: 30
