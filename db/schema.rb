@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_12_122226) do
+ActiveRecord::Schema.define(version: 2021_09_13_022437) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2021_09_12_122226) do
     t.string "email", null: false
     t.string "tel", null: false
     t.string "address"
+  end
 
   create_table "mediation_contracts", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
