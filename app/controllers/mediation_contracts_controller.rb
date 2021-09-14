@@ -10,11 +10,8 @@ class MediationContractsController < ApplicationController
     @mediation_contract = MediationContract.new
     @mediation_contract.user = current_user
 
-    if @mediation_contract.save
-      flash[:info] = '手続き継続に合意しました'
-      redirect_to user_pages_home_url
-    else
-      redirect_to mediation_contract_new_url
-    end
+    @mediation_contract.save!
+    flash[:info] = '手続き継続に合意しました'
+    redirect_to user_pages_home_url
   end
 end
