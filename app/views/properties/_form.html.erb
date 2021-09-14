@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'property/new' %>
 
-<%= form_with model: Property.new do |form| %>
+<%= form_with model: Property.new , local: true do |form| %>
   <div >
     <%= form.label '都道府県' %>
     <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
