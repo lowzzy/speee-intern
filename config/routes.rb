@@ -3,6 +3,7 @@
 Rails.application.routes.draw do
   get '/home' , to: 'user_pages#home' # userのhome画面
   get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
+  get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
   
   namespace :admin do
     root to: 'admin_pages#home'
@@ -22,6 +23,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :users, only: %i[show]
+  get 'delegation_contract', to: 'users#delegation_contract'
+  post 'delegation_contract', to: 'users#delegation_contract'
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',
