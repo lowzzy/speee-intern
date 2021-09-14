@@ -12,8 +12,7 @@ class PropertiesController < ApplicationController
       redirect_to price_property_url(property.id)
     else
       flash.now[:info] = "入力に誤りが含まれています : #{property.errors.full_messages.join('. ')}"
-      prefectures_list
-      render 'new'
+      redirect_to new_property_path
     end
   end
 
