@@ -29,6 +29,8 @@
         <p>入金待ち/引き取り待ち</p>
     <% elsif @user_status == 'all_completed' %>
         <p>売却完了</p>
+    <% else %>
+        <p>読み込みエラー</p>
     <% end %>
 </div>
 
