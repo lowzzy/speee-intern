@@ -3,7 +3,6 @@
 class PropertiesController < ApplicationController
   def new
     prefectures_list
-    Property.new
   end
 
   def create
