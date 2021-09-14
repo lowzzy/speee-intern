@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
   
   namespace :admin do
+    resources :agencies, only: [:new, :create, :index]
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
   end

@@ -56,6 +56,15 @@ module Users
     #   user_pages_agree_path
     # end
 
+    # sign_upのときに、Viewからname, address, telの値を受け取る
+    before_action :configure_permitted_parameters, if: :devise_controller?
+
+    protected
+
+    def configure_permitted_parameters
+      devise_parameter_sanitizer.permit(:sign_up, keys: %i[name address tel])
+    end
+
     def after_sign_up_path_for(resource)
       case  resource
       when User
