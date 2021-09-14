@@ -13,8 +13,9 @@ module Admin
     def create
       @agency = Agency.new(agency_params)
       if @agency.save
+        redirect_to admin_agencies_new_path
       else
-        # エラーの場合の処理
+        # TODO: flashエラーメッセージを表示
         redirect_to admin_agencies_path
       end
     end
