@@ -1,0 +1,10 @@
+<h1>売買契約手続きについて</h1>
+<div class="agreement_form">
+    <%= form_with model: @buy_contract, local: true do |form| %>
+        <%= form.check_box :agreement, as: :boolean, checked: false %>
+        <%= label_tag :agreement, "利用規約とプライバシーポリシーに同意します。" %>
+
+        <%= form.submit "売買契約を締結する", data: { disable_with: 'Submitting...' } %>
+    <% end %>
+    <%= link_to "手続きをキャンセル", "" %> <%# TODO: 契約キャンセルページにリダイレクト %>
+</div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_15_025432) do
+ActiveRecord::Schema.define(version: 2021_09_15_090314) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 2021_09_15_025432) do
     t.index ["agency_id"], name: "index_assessments_on_agency_id"
     t.index ["property_id"], name: "index_assessments_on_property_id"
     t.index ["user_id"], name: "index_assessments_on_user_id"
+  end
+
+  create_table "buy_contracts", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "buyer_id"
+    t.integer "final_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
