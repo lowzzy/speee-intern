@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
-    # resources :candidates
     get 'candidates', to: 'candidates#new'
     post 'candidates', to: 'candidates#create'
     get 'candidates/show', to: 'candidates#show'

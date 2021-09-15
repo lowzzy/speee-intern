@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_103713) do
+ActiveRecord::Schema.define(version: 2021_09_15_005102) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,27 +24,19 @@ ActiveRecord::Schema.define(version: 2021_09_14_103713) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "buy_contracts", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "final_price"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_buy_contracts_on_user_id"
-  end
-
   create_table "candidate_buyers", charset: "utf8mb4", force: :cascade do |t|
     t.text "hearing", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
-    t.string "address"
+    t.string "name", null: false
+    t.string "address", null: false
   end
 
   create_table "offers", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "price"
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "transacted_on"
+    t.datetime "transacted_on", null: false
     t.bigint "candidate_buyer_id"
   end
 
@@ -60,5 +52,4 @@ ActiveRecord::Schema.define(version: 2021_09_14_103713) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "buy_contracts", "users"
 end
