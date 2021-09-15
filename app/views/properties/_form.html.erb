@@ -1,18 +1,19 @@
 <%= javascript_pack_tag 'property/new' %>
 
 <%= form_with model: Property.new , local: true do |form| %>
-  <div >
-    <%= form.label '都道府県' %>
-    <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
+  <div class="form-template">
+    <div class="form-goup">
+      <%= form.label '都道府県', class:"form-label" %>
+      <%= form.select :prefecture,  @prefectures_list, {}, {id: 'prefecture', class:'form-select'} %>
+    </div>
+    <div id="city_select" class="form-goup">
+      <%= form.label '都市', class:"form-label" %>
+      <%= form.select :city ,[[]] , {}, {id: 'city', class:'form-select'} %>
+    </div>
+    <div class="form-goup">
+      <%= form.label '駅', class:"form-label" %>
+      <%= form.text_field :station, class:'form-control' %>
+    </div>
   </div>
-  <div id="city_select">
-    <%= form.label '都市' %>
-    <%= form.select :city ,[[]] ,id: 'city' %>
-  </div>
-  <div >
-    <%= form.label '駅' %>
-    <%= form.text_field :station %>
-  </div>
-  
-  <%= form.submit %>
+  <%= form.submit "登録", class: 'btn btn-primary'%>
 <% end %>
