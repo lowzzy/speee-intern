@@ -1,15 +1,6 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :tel, presence: true
-
   enum status: {
     account_created: 0,
     delegation_agreed: 1,
@@ -24,6 +15,16 @@ class User < ApplicationRecord
     candidate_chosen: 10,
     buy_contract_agreed: 11,
     buy_contract_signed: 12,
-    all_completed: 13
+    all_completed: 13,
+    cancel: 20
   }
+
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+
+  validates :name, presence: true
+  validates :address, presence: true
+  validates :tel, presence: true
 end
