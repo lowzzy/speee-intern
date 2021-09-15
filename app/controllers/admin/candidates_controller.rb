@@ -17,7 +17,6 @@ module Admin
       @offer.update(user_id: user_params[:id])
 
       if @candidate_buyer.save && @offer.save
-        binding.pry
         flash[:success] = '買い手登録を完了しました。'
         redirect_to admin_candidates_path
       else
