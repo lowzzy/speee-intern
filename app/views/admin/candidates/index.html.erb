@@ -1,0 +1,19 @@
+<h1>買い手一覧表示</h1>
+<%= @candidate_all.nil? %>
+<%= @candidate_all.first.id %>
+<%= @candidate_all.last.id %>
+<% @candidate_all.each do |c| %>
+<h3>名前</h3>
+<%= c.name %>
+<h3>住所</h3>
+<%= c.address %>
+<h3>コメント</h3>
+<%= c.hearing %>
+<h3>金額</h3>
+<%= Offer.find_by(candidate_buyer_id: c.id).price %>
+<h3>取引日時</h3>
+<%= Offer.class %>
+<%= Offer.find_by(candidate_buyer_id: c.id).class %>
+<%= Offer.find_by(candidate_buyer_id: c.id).transacted_on.class %>
+
+<% end %>

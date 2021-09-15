@@ -59,7 +59,7 @@ module Users
     def after_sign_up_path_for(resource)
       case  resource
       when User
-        user_pages_agree_path
+        agree_path
       when AdminUser
         admin_root
       end
