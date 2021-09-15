@@ -7,4 +7,6 @@ class UserPagesController < ApplicationController
   end
 
   def agree; end
+
+  def cancel; end
 end
