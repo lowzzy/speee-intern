@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_051525) do
+ActiveRecord::Schema.define(version: 2021_09_15_025432) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.integer "prefecture_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,6 +31,25 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.string "email", null: false
     t.string "tel", null: false
     t.string "address"
+  end
+
+  create_table "assessments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
+    t.bigint "agency_id", null: false
+    t.integer "temp_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_assessments_on_agency_id"
+    t.index ["property_id"], name: "index_assessments_on_property_id"
+    t.index ["user_id"], name: "index_assessments_on_user_id"
+  end
+
+  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mediation_contracts", charset: "utf8mb4", force: :cascade do |t|
@@ -67,12 +79,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "towns", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "city_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -89,5 +95,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assessments", "agencies"
+  add_foreign_key "assessments", "properties"
+  add_foreign_key "assessments", "users"
   add_foreign_key "mediation_contracts", "users"
 end
