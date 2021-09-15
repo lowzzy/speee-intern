@@ -65,3 +65,10 @@ https://sep2021-2.intern.speee.in
 rubocop -A
 ```
 上記コマンドでフォーマットを実行できる。
+
+## rake task(Prefecture table,city tableはこれ叩かないと作成されない)
+
+```
+rake import:prefecture
+rake import:city
+```
