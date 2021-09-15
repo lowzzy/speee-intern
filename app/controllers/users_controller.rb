@@ -4,13 +4,9 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show; end
 
-  def update
-    current_user.update(user_delegation_params)
-  end
-
   # 委任契約同意アクション
   def delegation_contract
-    case params[:is_agree]
+    case params[:agreed]
     when 'true'
       current_user.update(status: :delegation_agreed)
       redirect_to agree_path
