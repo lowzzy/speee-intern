@@ -1,0 +1,14 @@
+<h1>売り手一覧</h1>
+
+<% @users.each do |u| %>
+  <h3>＜名前＞</h3>
+  <%= u.name %>
+  <h3>＜メールアドレス＞</h3>
+  <%= u.email %>
+  <h3>＜住所＞</h3>
+  <%= u.address %>
+  <h3>＜電話番号＞</h3>
+  <%= u.tel %>
+  <%= link_to 'この人に決定', new_admin_candidate_path(id: u.id), class: 'btn' %>
+  <h3>----------------------</h3>
+<% end %>
