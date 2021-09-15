@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show; end
 
-  # 委任契約同意アクション
+  # 委任契約合意アクション
   def delegation_contract
     case params[:agreed]
     when 'true'
