@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.string "address"
   end
 
+  create_table "assessments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
+    t.bigint "agency_id", null: false
+    t.integer "temp_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_assessments_on_agency_id"
+    t.index ["property_id"], name: "index_assessments_on_property_id"
+    t.index ["user_id"], name: "index_assessments_on_user_id"
+  end
+
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.integer "prefecture_id"
@@ -91,5 +103,8 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assessments", "agencies"
+  add_foreign_key "assessments", "properties"
+  add_foreign_key "assessments", "users"
   add_foreign_key "mediation_contracts", "users"
 end
