@@ -13,6 +13,16 @@
     <%= form.label '駅' %>
     <%= form.text_field :station %>
   </div>
-  
-  <%= form.submit %>
+  <div>
+    <%= form.label '築年数' %>
+    <%= form.number_field :year %>
+  </div>
+
+  <div>
+    <%= form.label '物件種別' %>
+    <%= form.select :kinds, {'鉄筋': 1, '強鉄筋': 2, '木造': 3}, { include_blank: '選択してください'} %>
+  </div>
+
+  <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
+
 <% end %>

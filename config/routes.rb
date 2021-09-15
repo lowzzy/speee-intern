@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
   
   namespace :admin do
-    resources :agencies, only: [:new, :create, :index]
+    resources :agencies, only: [:new, :index, :create]
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
+    resources :candidates, only: [:new, :index, :create] do
+      collection do
+        get 'user_select'
+      end
+    end
   end
 
   resources :mediation_contracts, only: [:new, :create]

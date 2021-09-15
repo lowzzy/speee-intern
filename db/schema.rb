@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 2021_09_15_052819) do
+=======
 ActiveRecord::Schema.define(version: 2021_09_15_053231) do
+>>>>>>> 2b3f0133ce3017c56fba18b05489c6fe5769bf2b
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,7 +36,12 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.string "tel", null: false
     t.string "address"
   end
-
+  create_table "candidate_buyers", charset: "utf8mb4", force: :cascade do |t|
+    t.text "hearing", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+    t.string "address", null: false
   create_table "assessments", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "property_id", null: false
@@ -42,7 +51,6 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["agency_id"], name: "index_assessments_on_agency_id"
     t.index ["property_id"], name: "index_assessments_on_property_id"
-    t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
@@ -59,6 +67,16 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "agency_id"
     t.index ["user_id"], name: "index_mediation_contracts_on_user_id"
+  end
+
+  create_table "offers", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "transacted_on", null: false
+    t.bigint "candidate_buyer_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "prefectures", charset: "utf8mb4", force: :cascade do |t|
@@ -101,4 +119,5 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
   add_foreign_key "assessments", "properties"
   add_foreign_key "assessments", "users"
   add_foreign_key "mediation_contracts", "users"
+  add_foreign_key "offers", "users"
 end

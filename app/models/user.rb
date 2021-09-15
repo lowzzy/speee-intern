@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :offers
   enum status: {
     account_created: 0,
     delegation_agreed: 1,
