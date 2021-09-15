@@ -2,7 +2,7 @@
 
 class AssessmentsController < ApplicationController
   before_action :authenticate_user!
-  def show
+  def index
     @assessments = Assessment.where(user_id: current_user.id)
   end
 end

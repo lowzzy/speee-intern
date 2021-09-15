@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :assessments, only: [:show]
+  resources :assessments, only: [:index]
   get '/home' , to: 'user_pages#home' # userのhome画面
   get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
