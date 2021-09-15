@@ -1,6 +1,6 @@
 class Offer < ApplicationRecord
-  # include ActiveRecord::AttributeAssignment
-  # attribute :transacted_on, :datetime
-
   belongs_to :candidate_buyer
+
+  validates :price, presence: true
+  validates :transacted_on, presence: true
 end
