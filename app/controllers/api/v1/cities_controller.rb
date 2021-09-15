@@ -8,9 +8,6 @@ module Api
         cities = prefecture.cities.pluck(:name, :id)
         render json: { status: 'SUCCESS', message: 'Loaded cities', data: cities }
       end
-
-      def get_api
-        prefecture
     end
   end
 end
