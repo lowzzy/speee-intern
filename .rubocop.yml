@@ -17,5 +17,14 @@ Style/AsciiComments:
 Style/Documentation:
   Enabled: false
 
+# Methodの最大ライン数を100行に増やす
+Metrics/MethodLength:
+  Max: 100
+
+# 循環的複雑度の制限を無くす
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+# ABCSizeのチェックを無くす
 Metrics/AbcSize:
-  Max: 30
+  Enabled: false
