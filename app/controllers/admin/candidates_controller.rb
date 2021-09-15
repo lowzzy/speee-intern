@@ -6,7 +6,7 @@ module Admin
     def new
       @candidate_buyer = CandidateBuyer.new
       @offer = @candidate_buyer.build_offer
-      @user = User.find(params[:id])
+      @user = User.find(params[:user_id])
       # @offer.update(user_id: params[:id])
     end
 
@@ -14,7 +14,7 @@ module Admin
     def create
       @candidate_buyer = CandidateBuyer.new(candidate_params)
       @offer = @candidate_buyer.build_offer(offer_params)
-      @offer.update(user_id: user_params[:id])
+      @offer.update(user_id: user_params[:user_id])
 
       if @candidate_buyer.save && @offer.save
         flash[:success] = '買い手登録を完了しました。'
@@ -46,7 +46,7 @@ module Admin
     end
 
     def user_params
-      params.require(:candidate_buyer).permit(:id)
+      params.require(:candidate_buyer).permit(:user_id)
     end
   end
 end

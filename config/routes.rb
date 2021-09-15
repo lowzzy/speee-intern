@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     resources :candidates, only: [:new, :index, :create] do
       collection do
         get 'user_select'
-        post 'user_select'
       end
     end
   end
