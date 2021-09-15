@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  price: 1
+  transaction_on: 2021-09-14 14:16:19
+
+two:
+  price: 1
+  transaction_on: 2021-09-14 14:16:19
