@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :assessments, only: [:index]
   get '/home' , to: 'user_pages#home' # userのhome画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
+  get '/mailing_direction', to: 'user_pages#mailing_direction' # 鍵書類の送り方説明画面
   
   namespace :admin do
     resources :agencies, only: [:new, :create, :index]
