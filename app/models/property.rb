@@ -13,5 +13,5 @@ class Property < ApplicationRecord
   validates  :construction_type, numericality: { in: 0..2 }, allow_blank: true
   validates  :material_type, numericality: { in: 0..1 }, allow_blank: true
 
-  belongs_to :user
+  belongs_to :user,optional: true
 end
