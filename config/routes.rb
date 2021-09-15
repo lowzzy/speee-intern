@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  put 'users/sign_up'
 
   resources :users, only: %i[show]
   get 'delegation_contract', to: 'users#delegation_contract' # 委任契約の合意画面
