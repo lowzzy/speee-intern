@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
   
   namespace :admin do
+    resources :agencies, only: [:new, :create, :index]
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
     get 'candidates', to: 'candidates#new'
@@ -12,9 +13,15 @@ Rails.application.routes.draw do
     get 'candidates/show', to: 'candidates#show'
   end
 
+  resources :mediation_contracts, only: [:new, :create]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'home#index'
-
+  resources :properties do
+    member do
+      get :price, :properties
+    end
+  end
   mount KomachiHeartbeat::Engine => '/ops'
 
   devise_for :users, controllers: {
@@ -29,4 +36,10 @@ Rails.application.routes.draw do
     passwords: 'admin_users/passwords',
     registrations: 'admin_users/registrations'
   }
+
+  namespace 'api' do
+    namespace 'v1' do
+      get 'cities', to: 'cities#index'
+    end
+  end
 end

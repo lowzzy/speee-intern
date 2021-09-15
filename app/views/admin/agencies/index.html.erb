@@ -1,0 +1,7 @@
+<h1>不動産会社</h1>
+<%= link_to "不動産会社を登録", "agencies/new" %>
+<% @agencies.each do |agency| %>
+    <h3><%= agency.name %></h3>
+    <p><%= agency.address %></p>
+    <br>
+<% end %>

@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2021_09_15_005102) do
-
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -38,6 +37,54 @@ ActiveRecord::Schema.define(version: 2021_09_15_005102) do
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "transacted_on", null: false
     t.bigint "candidate_buyer_id"
+
+  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+    t.string "email", null: false
+    t.string "tel", null: false
+    t.string "address"
+  end
+
+  create_table "mediation_contracts", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "temp_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_mediation_contracts_on_user_id"
+  end
+
+  create_table "prefectures", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "properties", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "age"
+    t.integer "prefecture"
+    t.string "city"
+    t.string "station"
+    t.string "floor_plan"
+    t.integer "square_measure"
+    t.integer "construction_type"
+    t.integer "material_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "towns", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "city_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -48,8 +95,13 @@ ActiveRecord::Schema.define(version: 2021_09_15_005102) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+    t.string "address", null: false
+    t.string "tel", null: false
+    t.integer "status", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "mediation_contracts", "users"
 end
