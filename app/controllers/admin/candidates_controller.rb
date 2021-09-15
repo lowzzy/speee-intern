@@ -5,7 +5,6 @@ class Admin::CandidatesController < AdminController
   def new
     @candidate_buyer = CandidateBuyer.new
     @offer = @candidate_buyer.build_offer
-    # @offer = Offer.new
   end
 
   # Post 買い手候補登録
@@ -22,11 +21,10 @@ class Admin::CandidatesController < AdminController
 
       datetime = time_1 + '-' + time_2 + '-' + time_3 + ' ' + time_4 + ':' + time_5
       time = DateTime.parse(datetime)
-
       @candidate_buyer.offer.update(transacted_on: time)
 
-
       flash[:success] = '買い手登録を完了しました。'
+      redirect_to admin_candidates_show_path
     else
       # エラーだったら買い手候補ページに飛ぶようにする。
       redirect_to admin_candidates_path
