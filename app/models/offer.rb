@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Offer < ApplicationRecord
   belongs_to :candidate_buyer
 

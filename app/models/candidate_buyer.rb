@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CandidateBuyer < ApplicationRecord
   include ActiveRecord::AttributeAssignment
   has_one :offer
