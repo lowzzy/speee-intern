@@ -9,6 +9,8 @@ module Admin
       @user = User.find(params[:user_id])
     end
 
+    # rubocop:disable all
+
     # Post 買い手候補登録
     def create
       @candidate_buyer = CandidateBuyer.new(candidate_params)
@@ -18,12 +20,14 @@ module Admin
       if @candidate_buyer.save && @offer.save
         flash[:success] = '買い手登録を完了しました。'
         redirect_to admin_candidates_path
+      
       else
         # エラーだったら買い手候補ページに飛ぶようにする。
         redirect_to admin_candidates_path
         flash[:danger] = '買い手を登録できませんでした。'
       end
     end
+    # rubocop:enable all
 
     # Get 買い手を全て表示する画面(テスト用)
     def index
