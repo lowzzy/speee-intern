@@ -15,7 +15,7 @@
     <%= form.label :hearing, "ヒアリング内容" %>
     <%= form.text_area :hearing %>
 
-    <%= form.hidden_field :user_id, :value => @user.id %>
+    <%= hidden_field_tag :user_id, :value => @user.id %>
 
     <br><br>
     <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>

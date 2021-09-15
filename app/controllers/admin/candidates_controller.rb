@@ -7,7 +7,12 @@ module Admin
       @candidate_buyer = CandidateBuyer.new
       @offer = @candidate_buyer.build_offer
       @user = User.find(params[:user_id])
-      # @offer.update(user_id: params[:id])
+      puts params[:user_id]
+      puts params[:user_id]
+      puts params[:user_id]
+      puts params[:user_id]
+      puts params[:user_id]
+      puts params[:user_id]
     end
 
     # Post 買い手候補登録
@@ -15,6 +20,11 @@ module Admin
       @candidate_buyer = CandidateBuyer.new(candidate_params)
       @offer = @candidate_buyer.build_offer(offer_params)
       @offer.update(user_id: user_params[:user_id])
+
+      puts user_params[:user_id]
+      puts user_params[:user_id]
+      puts user_params[:user_id]
+      puts user_params[:user_id]
 
       if @candidate_buyer.save && @offer.save
         flash[:success] = '買い手登録を完了しました。'
