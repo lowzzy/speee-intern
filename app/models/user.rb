@@ -26,4 +26,5 @@ class User < ApplicationRecord
     buy_contract_signed: 12,
     all_completed: 13
   }
+  has_one :property
 end
