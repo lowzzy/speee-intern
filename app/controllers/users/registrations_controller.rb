@@ -70,7 +70,7 @@ module Users
     def after_sign_up_path_for(resource)
       case  resource
       when User
-        agree_path
+        delegation_contract_path
       when AdminUser
         admin_root
       end
