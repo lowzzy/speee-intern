@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+
+  put 'users/sign_up'
+
   resources :users, only: %i[show]
 
   devise_for :admin_users, controllers: {

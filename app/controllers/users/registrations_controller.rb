@@ -11,9 +11,11 @@ module Users
     # end
 
     # POST /resource
-    # def create
-    #   super
-    # end
+    def create
+      super
+      Property.find(params[:user][:property_id].to_i)
+              .update(user_id: current_user.id)
+    end
 
     # GET /resource/edit
     # def edit

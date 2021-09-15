@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_14_051525) do
+ActiveRecord::Schema.define(version: 2021_09_15_030611) do
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -24,13 +24,6 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
-    t.string "name"
-    t.integer "prefecture_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "agencies", charset: "utf8mb4", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,6 +31,13 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.string "email", null: false
     t.string "tel", null: false
     t.string "address"
+  end
+
+  create_table "cities", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.integer "prefecture_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "mediation_contracts", charset: "utf8mb4", force: :cascade do |t|
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_051525) do
     t.integer "material_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "towns", charset: "utf8mb4", force: :cascade do |t|
