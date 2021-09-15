@@ -6,7 +6,7 @@ class UserPagesController < ApplicationController
     @user_status = current_user.status
   end
 
-  def agree; end
+  def docs_agree; end
 
   def cancel; end
 end

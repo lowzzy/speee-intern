@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   get '/home' , to: 'user_pages#home' # userのhome画面
-  get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
+  get '/docs_agree', to: 'user_pages#docs_agree' # 鍵などの合意画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
   
   namespace :admin do

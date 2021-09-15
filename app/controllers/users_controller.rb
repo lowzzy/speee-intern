@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     case params[:agreed]
     when 'true'
       current_user.update(status: :delegation_agreed)
-      redirect_to agree_path
+      redirect_to docs_agree_path
     when 'false'
       current_user.update(status: :cancel)
       redirect_to cancel_path
