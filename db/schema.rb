@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_09_15_052819) do
+=======
+ActiveRecord::Schema.define(version: 2021_09_15_053231) do
+>>>>>>> 2b3f0133ce3017c56fba18b05489c6fe5769bf2b
 
   create_table "admin_users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,13 +36,21 @@ ActiveRecord::Schema.define(version: 2021_09_15_052819) do
     t.string "tel", null: false
     t.string "address"
   end
-
   create_table "candidate_buyers", charset: "utf8mb4", force: :cascade do |t|
     t.text "hearing", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", null: false
     t.string "address", null: false
+  create_table "assessments", charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "property_id", null: false
+    t.bigint "agency_id", null: false
+    t.integer "temp_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_assessments_on_agency_id"
+    t.index ["property_id"], name: "index_assessments_on_property_id"
   end
 
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
@@ -53,6 +65,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_052819) do
     t.integer "temp_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "agency_id"
     t.index ["user_id"], name: "index_mediation_contracts_on_user_id"
   end
 
@@ -83,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_09_15_052819) do
     t.integer "material_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
   end
 
   create_table "users", charset: "utf8mb4", force: :cascade do |t|
@@ -101,6 +115,9 @@ ActiveRecord::Schema.define(version: 2021_09_15_052819) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "assessments", "agencies"
+  add_foreign_key "assessments", "properties"
+  add_foreign_key "assessments", "users"
   add_foreign_key "mediation_contracts", "users"
   add_foreign_key "offers", "users"
 end

@@ -1,0 +1,8 @@
+<h1>査定結果</h1>
+<p><%= current_user.name %>さんの物件</p>
+<br>
+<% @assessments.each do |assess| %>
+    <b><%= assess.agency.name %></b>
+    <p>金額：<span><%= assess.temp_price %></span>円</p>
+    <br>
+<% end %>
