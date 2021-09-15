@@ -102,4 +102,5 @@ ActiveRecord::Schema.define(version: 2021_09_15_052819) do
   end
 
   add_foreign_key "mediation_contracts", "users"
+  add_foreign_key "offers", "users"
 end
