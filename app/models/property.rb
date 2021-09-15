@@ -12,4 +12,6 @@ class Property < ApplicationRecord
   validates  :square_measure, numericality: { greater_than: 0 }, allow_blank: true
   validates  :construction_type, numericality: { in: 0..2 }, allow_blank: true
   validates  :material_type, numericality: { in: 0..1 }, allow_blank: true
+
+  belongs_to :user, optional: true
 end

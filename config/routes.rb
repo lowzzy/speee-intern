@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+
+
   resources :users, only: %i[show]
   get 'delegation_contract', to: 'users#delegation_contract' # 委任契約の合意画面
   post 'delegation_contract', to: 'users#delegation_contract'
