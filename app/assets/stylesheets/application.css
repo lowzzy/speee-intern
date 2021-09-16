@@ -31,5 +31,20 @@
     top: 0;
  }
  .avatar {
-     height: 37px;
+    height: 37px;
+}
+
+ footer {
+     background-color: #F4F8F2;
  }
+ .footer-logo {
+    height: 60px;
+    width: auto;
+    margin-left: clamp(0px, 1vw, 40px);
+    top: 0;
+ }
+ .info {
+     font-size: 12px;
+     margin: 0 30px;
+ }
+
