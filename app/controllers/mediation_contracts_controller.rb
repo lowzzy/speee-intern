@@ -2,16 +2,13 @@
 
 class MediationContractsController < ApplicationController
   before_action :authenticate_user!
-  def new
-    @mediation_contract = MediationContract.new
-  end
-
+  
+  # MediationContracには、Assessmentと同じ値が入る
   def create
-    @mediation_contract = MediationContract.new
-    @mediation_contract.user = current_user
-
-    @mediation_contract.save!
-    flash[:info] = '手続き継続に合意しました'
+    as = Assessment.where(user_id: current_user.id)
+    as.each do |a|
+      MediationContract.create(agency_id: a.agency_id, user_id: current_user.id, temp_price: a.temp_price)
+    end
     redirect_to home_url
   end
 end

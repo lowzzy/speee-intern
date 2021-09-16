@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :mediation_contracts, only: [:new, :create]
+  get 'mediation_contracts', to: 'mediation_contracts#create' # 一般媒介契約create
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'home#index'
@@ -40,6 +41,8 @@ Rails.application.routes.draw do
   post 'delegation_contract', to: 'users#delegation_contract'
   get 'docs_agree', to: 'users#docs_agree' # 鍵書類郵送の合意画面
   post 'docs_agree', to: 'users#docs_agree'
+  get 'property_assessment', to: 'users#property_assessment' # 机上査定結果を見てからの合意画面
+  post 'property_assessment', to: 'users#property_assessment'
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',

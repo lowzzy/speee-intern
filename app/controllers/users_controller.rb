@@ -28,6 +28,20 @@ class UsersController < ApplicationController
     end
   end
 
+  # 机上査定結果を見た後
+  # 一般媒介契約合意アクション
+  def property_assessment
+    case params[:agreed]
+    when 'true'
+      # サービスの利用に同意したらMediationContractをcreateする
+      current_user.update(status: :mediation_agreed)
+      redirect_to mediation_contracts_url
+    when 'false'
+      current_user.update(status: :cancel)
+      redirect_to cancel_path
+    end
+  end
+
   private
 
   def user_params

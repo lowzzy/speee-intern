@@ -1,8 +1,11 @@
-<h1>査定結果</h1>
-<p><%= current_user.name %>さんの物件</p>
+<h1>机上査定結果</h1>
+<p><%= current_user.name %>さんの物件の査定結果をご確認ください。</p>
 <br>
 <% @assessments.each do |assess| %>
     <b><%= assess.agency.name %></b>
     <p>金額：<span><%= assess.temp_price %></span>円</p>
     <br>
 <% end %>
+
+<%= button_to "このままサービスの利用を続ける", property_assessment_path( agreed: "true" ), { method: :post} %>
+<%= button_to "サービスの利用をやめる（退会）", property_assessment_path( agreed: "false" ), { method: :post} %>
