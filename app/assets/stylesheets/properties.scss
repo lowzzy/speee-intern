@@ -21,7 +21,7 @@
   z-index: 0;
 }
 .hero-text {
-  max-width: 710px;
+  width: clamp(300px, 60vw, 710px);
   position: relative;
   margin: auto;
   text-align: center;
@@ -29,4 +29,11 @@
 .submit-button {
   display: flex;
   justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .property-form {
+    width: 100%;
+    border: none;
+  }
 }
