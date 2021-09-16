@@ -1,21 +1,43 @@
-<%= link_to "登録する : #{@property.id}", new_user_registration_path(property_id: @property.id) %>
-<%= link_to "査定に戻る", new_property_path %>
-<h2>似た物件の表示</h2>
+<div class='title'>
+  <h2>類似物件</h2>
+</div>
+<div class="set-right-url">
+  <%= link_to "査定に戻る", new_property_path %>
+</div>
 <% if @nearly.present? %>
-  <% @nearly.each_with_index do |nearly_property, i| %>
-    <%= nearly_property["Type"] %>
-    <%= nearly_property["Prefecture"] %>
-    <%= nearly_property["Municipality"] %>
-    <%= nearly_property["DistrictName"] %>
-    取引価格<%= nearly_property["TradePrice"] %>円
-    間取り<%= nearly_property["FloorPlan"] %>
-    面積<%= nearly_property["Area"] %>平方メートル
-    建築年<%= nearly_property["BuildingYear"] %>
-    今後の利用目的<%= nearly_property["Purpose"] %>
-    用途<%= nearly_property["Use"] %>
-    <br><br>
-    <% break if i == 5 %>
-  <% end %>
-  <% else %>
+  <table class='table-set'>
+    <tr>
+      <th>都道府県</th>
+      <th>市区町村</th>
+      <th>地区名</th>
+      <th>種類
+      <th>取引価格(円)</th>
+      <th>間取り</th>
+      <th>面積(m<sup>2</sup>)</th>
+      <th>建築年</th>
+      <th>今後の利用目的</th>
+      <th>用途</th>
+      </tr>
+    <% @nearly.each_with_index do |nearly_property, i| %>
+        <tr>
+          <td><%= nearly_property["Prefecture"] %></td>
+          <td><%= nearly_property["DistrictName"] %></td>
+          <td><%= nearly_property["Municipality"] %></td>
+          <td><%= nearly_property["Type"] %></td>
+          <td><%= nearly_property["TradePrice"] %></td>
+          <td><%= nearly_property["FloorPlan"] %></td>
+          <td><%= nearly_property["Area"] %></td>
+          <td><%= nearly_property["BuildingYear"] %></td>
+          <td><%= nearly_property["Purpose"] %></td>
+          <td><%= nearly_property["Use"] %></td>
+        </tr>
+        <% break if i == 5 %>
+    <% end %>
+  </table>
+<% else %>
    <h1>データがありません。</h1>
-  <% end %>
+   <%= link_to "査定に戻る", new_property_path %>
+<% end %>
+<div class='set-center'>
+  <%= link_to "サービスに登録する", new_user_registration_path(property_id: @property.id), class: 'btn btn-primary' %>
+</div>
