@@ -1,15 +1,26 @@
 <% if current_user.offers.present? && User.statuses[current_user.status] == User.statuses[:candidate_found] %>
-	売買契約締結先(購入希望者)リスト
-	<% current_user.offers.each do |o| %>
-    <h1>名前 : <%= o.candidate_buyer.name %></h1>
-    <p><%= o.price %></p>
-    <p><%= o.candidate_buyer.hearing %></p>
-    <%= button_to "この人と売買契約を締結する",
-        buy_contracts_path(buyer_id: o.candidate_buyer.id), 
-        data: { confirm: "#{o.candidate_buyer.name}さんで本当によろしいですか？" },
-        method: :post %>
-    <p>-------------------------------------------------------------------------</p>
-	<% end %>
+	<div class='set-center'>
+	  <h1>売買契約締結先(購入希望者)リスト</h1>
+  </div>
+  <table class='table-set'>
+    <tr>
+      <th>お名前</th>
+      <th>買取希望金額</th>
+      <th>買い手からのヒアリング</th>
+      <th>決定</th>
+    </tr>
+    <% current_user.offers.each do |o| %>
+      <tr>
+        <td><%= o.candidate_buyer.name %></td>
+        <td><%= o.price %></td>
+        <td><%= o.candidate_buyer.hearing %></td>
+        <td><%= button_to "売買契約を締結する",
+            buy_contracts_path(buyer_id: o.candidate_buyer.id), 
+            data: { confirm: "#{o.candidate_buyer.name}さんで本当によろしいですか？" },
+            method: :post %></td>
+      </tr>
+    <% end %>
+  </table>
 <% elsif User.statuses[current_user.status] > User.statuses[:candidate_found] %>
 	<h1>購入者は既に選択しています</h1>
 <% else %>
