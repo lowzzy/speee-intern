@@ -1,5 +1,5 @@
 <%= link_to "登録する : #{@property.id}", new_user_registration_path(property_id: @property.id) %>
-<%= link_to "査定に戻る", new_property_path %>
+<%= link_to "査定に戻る", new_property_path,data: {"turbolinks" => false} %>
 <h2>似た物件の表示</h2>
 <% if @nearly.present? %>
   <% @nearly.each_with_index do |nearly_property, i| %>

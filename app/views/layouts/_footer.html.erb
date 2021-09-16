@@ -21,7 +21,7 @@
                 <% if current_user.present? %>
                     <li class="mb-1"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:'small nav-link active text-black-50'%></li>
                 <% else %>
-                    <li class="mb-1"><%= link_to '新規登録', new_property_path, class:'small nav-link active text-black-50' %></li>
+                    <li class="mb-1"><%= link_to '新規登録', new_property_path,data: {"turbolinks" => false}, class:'small nav-link active text-black-50' %></li>
                     <li class="mb-1"><%= link_to 'ログイン', new_user_session_path, class:'small nav-link active text-black-50' %></li>
                 <% end %>
             </ul>
