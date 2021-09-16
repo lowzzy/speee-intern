@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class BuyContractsController < ApplicationController
-  def index; end
-
-  def new; end
 
   def create
     if BuyContract.where(id: current_user.id).present?
