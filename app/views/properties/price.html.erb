@@ -2,7 +2,7 @@
 <%= link_to "査定に戻る", new_property_path %>
 <h2>似た物件の表示</h2>
 <% if @nearly.present? %>
-  <% @nearly.each do |nearly_property| %>
+  <% @nearly.each_with_index do |nearly_property, i| %>
     <%= nearly_property["Type"] %>
     <%= nearly_property["Prefecture"] %>
     <%= nearly_property["Municipality"] %>
@@ -14,6 +14,7 @@
     今後の利用目的<%= nearly_property["Purpose"] %>
     用途<%= nearly_property["Use"] %>
     <br><br>
+    <% break if i == 5 %>
   <% end %>
   <% else %>
    <h1>データがありません。</h1>
