@@ -1,6 +1,10 @@
-<h1>キャンセル（退会）画面</h1>
+<div class="cancel-page">
+  <h1 class="fw-bold my-5">サービス退会</h1>
 
-<p>ご注意ください！</p>
-<p>キャンセル処理は取り消せません。本当にキャンセルしますか？</p>
-<%= button_to "はい", confirm_cancellation_path( agreed: "true" ), { method: :post} %>
-<%= button_to "いいえ", confirm_cancellation_path( agreed: "false" ), { method: :post} %>
+  <p>ご注意ください！</p>
+  <p><b>キャンセル処理は取り消せません。</b>本当にキャンセルしますか？</p>
+  <div class="cancel-button mt-3">
+    <%= button_to "はい", confirm_cancellation_path( agreed: "true" ), { method: :post, class:'btn-lg btn-danger mx-3'} %>
+    <%= button_to "いいえ", confirm_cancellation_path( agreed: "false" ), { method: :post, class:'btn-lg btn-outline-primary mx-3'} %>
+  </div>
+</div>

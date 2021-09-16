@@ -13,21 +13,26 @@
   border: 1px solid #dad8d8;
   padding: 30px;
 }
-.set_center{
-  .left-set{
+.set_center {
+
+  // text-align: center;
+  .left-set {
     margin-left: 300px;
     margin-right: 50px;
     text-align: left;
-    .overline{
+
+    .overline {
       margin-top: 50px;
       text-decoration: overline;
     }
   }
 }
-.title{
+
+.title {
   text-align: center;
   margin-bottom: 30px;
 }
+
 .font_red {
   font-size: 20px;    /* 文字サイズ指定 */
   color: #F44336;     /* 文字色指定 */
@@ -35,4 +40,47 @@
 .text-set-right{
   text-align: right;
   margin-right: 320px;
+}
+
+// -------- 契約委任ページ ----------
+.delegation-contract-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.delegation-button {
+  display: flex;
+}
+
+.statement-box {
+  width: clamp(300px, 60vw, 800px);
+  height: 500px;
+  padding: 40px;
+  overflow-y: auto;
+  background-color: white;
+  border: 1px solid rgb(207, 207, 207);
+}
+
+.statement {
+  line-height: 2;
+}
+
+@media only screen and (max-width: 600px) {
+  .statement-box {
+    width: 90%;
+  }
+}
+
+// -------- キャンセル（退会）ページ -----------
+
+.cancel-page {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cancel-button {
+  display: flex;
 }
