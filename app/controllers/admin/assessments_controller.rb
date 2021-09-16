@@ -11,10 +11,10 @@ module Admin
     # Post 査定結果登録登録
     def create
       property = User.find(params[:assessment][:user_id].to_i)
-      @assessment = Assessment.new(user_id: params[:assessment][:user_id].to_i, 
-        agency_id: params[:assessment][:agency_id],
-        property_id: property.id,
-        temp_price: params[:assessment][:temp_price])
+      @assessment = Assessment.new(user_id: params[:assessment][:user_id].to_i,
+                                   agency_id: params[:assessment][:agency_id],
+                                   property_id: property.id,
+                                   temp_price: params[:assessment][:temp_price])
 
       if @assessment.save
         flash[:success] = '査定結果登録を完了しました。'
