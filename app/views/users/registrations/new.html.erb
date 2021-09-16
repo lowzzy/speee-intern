@@ -8,26 +8,26 @@
         <%= f.label :email, "メール", class:"form-label" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
       </div>
-      <div class="form-goup field">
+      <div class="form-group field">
         <%= f.label :name, "氏名", class:"form-label" %>
         <%= f.text_field :name, class:'form-control' %>
       </div>
-      <div class="form-goup field">
+      <div class="form-group field">
         <%= f.label :address, "現住所", class:"form-label" %>
         <%= f.text_field :address, class:'form-control' %>
       </div>
-      <div class="form-goup field">
+      <div class="form-group field">
         <%= f.label :tel, "電話番号", class:"form-label" %>
         <%= f.text_field :tel, class:'form-control' %>
       </div>
-      <div class="form-goup field">
+      <div class="form-group field">
         <%= f.label :password, "パスワード", class:"form-label" %>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %>
         <%= f.password_field :password, autocomplete: "new-password", class:'form-control' %>
       </div>
-      <div class="form-goup field">
+      <div class="form-group field">
         <%= f.label :password_confirmation, "パスワード（確認）", class:"form-label" %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control' %>
       </div>

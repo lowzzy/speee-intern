@@ -2,7 +2,9 @@
 	<h1>登録済みです</h1>
 	<%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
 <% else %>
-	<h1>家情報</h1>
+	<%= image_tag 'room.png', class:'form-hero' %>
+	<h1 class="hero-text fw-bold my-5">まずは相場を、1分で。</h1>
+	<p class="hero-text mt-3 mb-5">サービスに売却代行を任せる前に、まずは物件の相場を調べてみましょう。物件の情報を入力すると、似た条件の物件の売却実績を見ることができます。入力は1分で完了し、すぐに表示されます。</p>
 	<div>
   	<%= render 'form' %>
 	</div>
