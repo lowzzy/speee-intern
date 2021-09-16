@@ -14,7 +14,6 @@
   padding: 30px;
 }
 .set_center{
-  // text-align: center;
   .left-set{
     margin-left: 300px;
     margin-right: 50px;
@@ -32,4 +31,8 @@
 .font_red {
   font-size: 20px;    /* 文字サイズ指定 */
   color: #F44336;     /* 文字色指定 */
+}
+.text-set-right{
+  text-align: right;
+  margin-right: 320px;
 }
