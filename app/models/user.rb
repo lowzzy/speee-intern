@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :offers
   enum status: {
     account_created: 0,
     delegation_agreed: 1,
@@ -18,6 +19,8 @@ class User < ApplicationRecord
     all_completed: 13,
     cancel: 20
   }
+
+  has_one :property
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

@@ -4,12 +4,24 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def show; end
 
-  # 委任契約同意アクション
+  # 委任契約合意アクション
   def delegation_contract
     case params[:agreed]
     when 'true'
       current_user.update(status: :delegation_agreed)
-      redirect_to agree_path
+      redirect_to docs_agree_path
+    when 'false'
+      current_user.update(status: :cancel)
+      redirect_to cancel_path
+    end
+  end
+
+  # 鍵郵送合意アクション
+  def docs_agree
+    case params[:agreed]
+    when 'true'
+      current_user.update(status: :docs_agreed)
+      redirect_to mailing_direction_path
     when 'false'
       current_user.update(status: :cancel)
       redirect_to cancel_path

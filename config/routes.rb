@@ -1,14 +1,20 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :assessments, only: [:index]
   get '/home' , to: 'user_pages#home' # userのhome画面
-  get '/agree', to: 'user_pages#agree' # 鍵などの合意画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
+  get '/mailing_direction', to: 'user_pages#mailing_direction' # 鍵書類の送り方説明画面
   
   namespace :admin do
-    resources :agencies, only: [:new, :create, :index]
+    resources :agencies, only: [:new, :index, :create]
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
+    resources :candidates, only: [:new, :index, :create] do
+      collection do
+        get 'user_select'
+      end
+    end
   end
 
   resources :mediation_contracts, only: [:new, :create]
@@ -27,9 +33,13 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+
+
   resources :users, only: %i[show]
-  get 'delegation_contract', to: 'users#delegation_contract'
+  get 'delegation_contract', to: 'users#delegation_contract' # 委任契約の合意画面
   post 'delegation_contract', to: 'users#delegation_contract'
+  get 'docs_agree', to: 'users#docs_agree' # 鍵書類郵送の合意画面
+  post 'docs_agree', to: 'users#docs_agree'
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',

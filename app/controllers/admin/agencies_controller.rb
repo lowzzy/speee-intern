@@ -12,12 +12,13 @@ module Admin
 
     def create
       @agency = Agency.new(agency_params)
-      if @agency.save
-        redirect_to admin_agencies_new_path
-      else
-        # TODO: flashエラーメッセージを表示
-        redirect_to admin_agencies_path
-      end
+      flash[:info] = if @agency.save
+                       # price画面で'登録が完了しました'と表示される
+                       '登録が完了しました'
+                     else
+                       "入力に誤りが含まれています : #{@agency.errors.full_messages.join('. ')}"
+                     end
+      redirect_to new_admin_agency_path
     end
 
     def agency_params
