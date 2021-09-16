@@ -8,6 +8,6 @@
 <h3>
 <%= u.name %> さん | <%= u.status %> 
 </h3>
-<%= button_to "ステータスを次に進める", admin_users_path(id: u.id), data: { confirm: "進めるけど本当にok?" }, method: :post %>
+<%= button_to "ステータスを次に進める", admin_user_path(id: u.id), data: { confirm: "進めるけど本当にok?" }, method: :put %>
 <% end %>
 <% end %>

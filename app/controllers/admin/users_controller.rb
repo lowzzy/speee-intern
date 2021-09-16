@@ -2,11 +2,11 @@
 
 module Admin
   class UsersController < AdminController
-    def index_users
+    def index
       @users = User.all
     end
 
-    def update_user
+    def update
       user = User.find(params[:id])
       if user.all_completed?
         flash[:info] = '最終ステータスなのでアップデートできません'
