@@ -2,29 +2,64 @@
 
 class PropertiesController < ApplicationController
   def new
+    @property = Property.new
     prefectures_list
   end
 
   def create
-    property = Property.new(property_params)
-    if property.save
+    @property = Property.new(property_params)
+
+    if @property.save
       flash[:info] = '登録が完了しました'
-      redirect_to price_property_url(property.id)
+      # ここにapiの処理を書きたい
+      retry_on_error{nearly}
+      render :price
     else
-      flash[:info] = "入力に誤りが含まれています : #{property.errors.full_messages.join('. ')}"
+      flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.join('. ')}"
       redirect_to new_property_path
     end
   end
 
-  def price; end
+  def price
+  end
 
   private
 
+  def nearly
+    if postal_code = property_params[:prefecture]
+      params = URI.encode_www_form({zipcode: postal_code})
+      uri = URI.parse("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=#{Date.today.year-2}#{Date.today.month}&to=#{Date.today.year}#{Date.today.month}&area=#{property_params[:prefecture]}&city=#{property_params[:city]}")
+      response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
+        http.open_timeout = 5 # responseが最初に帰ってくるまでの時間
+        http.read_timeout = 10 # ページを実際に返してくれるまでの時間
+        http.get(uri.request_uri)
+      end
+      result = JSON.parse(response.body)
+      if result["data"].present?
+        puts result["data"]
+        @nearly = result['data']
+      else    
+        raise 'EmptyError'
+      end
+    end
+  end
+
+  def retry_on_error(times: 3)
+    try = 0
+    begin
+      try += 1
+      yield
+    rescue
+      retry if try < times
+      false
+    end
+  end
+
   def property_params
     params.require(:property)
-          .permit(:age, :prefecture, :city, :station,
-                  :floor_plan, :square_measure,
-                  :construction_type, :material_type)
+          .permit(:prefecture, :city, 
+                  :age, :kinds, :address,
+                  :square_measure, :floor_plan)
   end
 
   def prefectures_list

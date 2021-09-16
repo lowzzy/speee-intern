@@ -1,6 +1,6 @@
 <%= javascript_pack_tag 'property/new' %>
 
-<%= form_with model: Property.new , local: true do |form| %>
+<%= form_with model: @property , local: true do |form| %>
   <div >
     <%= form.label '都道府県' %>
     <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
@@ -9,18 +9,30 @@
     <%= form.label '都市' %>
     <%= form.select :city ,[[]] ,id: 'city' %>
   </div>
+
   <div >
-    <%= form.label '駅' %>
-    <%= form.text_field :station %>
+    <%= form.label '住所' %>
+    <%= form.text_field :address %>
   </div>
+
   <div>
     <%= form.label '築年数' %>
-    <%= form.number_field :year %>
+    <%= form.number_field :age %>
   </div>
 
   <div>
     <%= form.label '物件種別' %>
-    <%= form.select :kinds, {'鉄筋': 1, '強鉄筋': 2, '木造': 3}, { include_blank: '選択してください'} %>
+    <%= form.select :floor_plan, {'鉄筋': 1, '強鉄筋': 2, '木造': 3}, { include_blank: '選択してください'} %>
+  </div>
+
+  <div>
+    <%= form.label '広さ' %>
+    <%= form.number_field :square_measure %>平方メートル
+  </div>
+
+  <div>
+    <%= form.label '間取り' %>
+    <%= form.text_field :kinds %>(ex: 1LDKなど)
   </div>
 
   <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
