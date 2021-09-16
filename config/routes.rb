@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   
   namespace :admin do
     resources :agencies, only: [:new, :index, :create]
+    resources :assessments, only: [:new, :index, :create]
     root to: 'admin_pages#home'
     get 'question', to: 'admin_pages#question'
     resources :candidates, only: [:new, :index, :create] do
