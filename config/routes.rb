@@ -16,6 +16,8 @@ Rails.application.routes.draw do
         get 'user_select'
       end
     end
+    resources :assessments, only: [:new, :index, :create]
+    # post :assessments, to: 'assessments#create'
   end
 
   resources :buy_contracts

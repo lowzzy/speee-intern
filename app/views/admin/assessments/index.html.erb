@@ -1,0 +1,6 @@
+<% @assessments.each do |a| %>
+	<p>ユーザ：<%= User.find(a.user_id).name %></p>
+	<p>不動産会社：<%= Agency.find(a.agency_id).name %></p>
+	<p>査定金額：<%= a.temp_price %></p>
+  <p>-----------------------------------</p>
+<% end %>
