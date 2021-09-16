@@ -1,3 +1,32 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.btn{
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.all_contents{
+  text-align: center;
+}
+.square {
+	width: 150px;
+	height: 150px;
+}
+.box_head{
+
+  height: 400px;
+
+  margin-top: 50px;
+  margin-left: 300px;
+  margin-right: 300px;
+
+  border: solid 3px #000000;
+
+  background-color: rgb(221, 220, 220);
+  p{
+    color:black;
+    text-align: left;
+    }
+}
