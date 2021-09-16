@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# 都道府県名から都市を返してくれるAPIのアクション
 module Api
   module V1
     class CitiesController < ActionController::Base

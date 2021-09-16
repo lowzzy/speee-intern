@@ -5,9 +5,15 @@ window.addEventListener('turbolinks:load', function(){
     
     // // イベント「input」を登録
     select_state.addEventListener("change",async function(){
-        const res = await fetch("http://localhost:13000/api/v1/cities?prefecture_id=" + this.value);
+        if (this.value > 0 && this.value < 10){
+            value_string = '0' + String(this.value)
+        }else{
+            value_string = String(this.value)
+        }
+        const res = await fetch("https://www.land.mlit.go.jp/webland/api/CitySearch?area=" + value_string);
         const cities = await res.json();
         removeOptions();
+        console.log(cities)
         appendOptions(cities.data);
     });
     function removeOptions(){
@@ -29,8 +35,8 @@ window.addEventListener('turbolinks:load', function(){
         //Create and append the options
         for (var i = 0; i < array.length; i++) {
             var option = document.createElement("option");
-            option.text = array[i][0];
-            option.value = array[i][1];
+            option.text = array[i]['name'];
+            option.value = array[i]['id'];
             selectList.appendChild(option);
         }
     }
