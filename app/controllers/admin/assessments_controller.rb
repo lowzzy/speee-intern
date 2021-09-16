@@ -10,7 +10,7 @@ module Admin
 
     # Post 査定結果登録登録
     def create
-      property = User.find(params[:assessment][:user_id].to_i)
+      property = User.find(params[:assessment][:user_id].to_i).property
       @assessment = Assessment.new(user_id: params[:assessment][:user_id].to_i,
                                    agency_id: params[:assessment][:agency_id],
                                    property_id: property.id,
@@ -19,7 +19,7 @@ module Admin
       if @assessment.save
         flash[:success] = '査定結果登録を完了しました。'
       else
-        flash[:danger] = '買い手を登録できませんでした。'
+        flash[:danger] = '査定結果を登録できませんでした。'
       end
       redirect_to new_admin_assessment_path
     end
