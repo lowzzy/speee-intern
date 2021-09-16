@@ -1,29 +1,31 @@
-
-<%= link_to '無料で自動査定する', new_property_path ,data: {"turbolinks" => false}%>
-
-<h2>ログイン</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="form-body form-row">
+  <div class="col">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="form-template m-0 ">
+      <h2 class="fw-bold mb-4">ログイン</h2>
+      <div class="form-group field">
+        <%= f.label :email, "メール", class:"form-label" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control' %>
+      </div>
+      <div class="form-goup field">
+        <%= f.label :password, "パスワード", class:"form-label" %>
+        <%= f.password_field :password, autocomplete: "current-password", class:'form-control' %>
+      </div>
+      <% if devise_mapping.rememberable? %>
+      <div class="field">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me, "アカウント情報を保存する" %>
+      </div>
+      <% end %>
+      <%= f.hidden_field :property_id, :value => params[:property_id] %>
+      <div class="actions mb-3">
+        <%= f.submit "ログイン", data: { disable_with: 'Submitting...'}, class: 'btn btn-primary mt-5' %>
+      </div>
+      <p class="small text-black-50">初めてのご利用ですか？ <%= link_to '無料で自動査定する', new_property_path, data: {"turbolinks" => false}, class:'small btn-link' %>
+      </p>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
+    <% end %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <%= image_tag 'town.jpg', class:'form-vector col' %>
+</div>

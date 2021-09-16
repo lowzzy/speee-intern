@@ -1,3 +1,16 @@
-<h1>鍵郵送合意画面</h1>
-<%= button_to "合意する", docs_agree_path( agreed: "true" ), { method: :post} %>
-<%= button_to "合意しない", docs_agree_path( agreed: "false" ), { method: :post} %>
+<div class="all_contents">
+  <h1>鍵郵送合意画面</h1>
+  <p>鍵を渡すため、以下のことを確認してください。</p>
+  <div class="box_head">
+    <p>
+      1. 郵送の時点での鍵の紛失については、御社は一切責任を負いかねます。。<br/>
+      2. ...
+    </p>
+  </div>
+  <div class="btn_margin">
+    <%= button_to "合意する", docs_agree_path( agreed: "true" ), { method: :post, class: 'btn-lg btn-primary'}%>
+  </div>
+  <div class="btn_margin">
+    <%= button_to "合意しない", docs_agree_path( agreed: "false" ), { method: :post, class: 'btn-lg btn-primary change_red'} %>
+  </div>
+</div>
