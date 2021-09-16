@@ -9,5 +9,6 @@ class UserPagesController < ApplicationController
   def cancel; end
 
   def agree_buy_contract; end
+
   def mailing_direction; end
 end
