@@ -1,10 +1,22 @@
-<h1>机上査定結果</h1>
-<p><%= current_user.name %>さんの物件の査定結果をご確認ください。</p>
-<br>
-<% @assessments.each do |assess| %>
-    <b><%= assess.agency.name %></b>
-    <p>金額：<span><%= assess.temp_price %></span>円</p>
+<div class="assessment-page">
+    <h1 class="fw-bold my-4">机上査定結果</h1>
+    <p><%= current_user.name %>さんの物件の査定結果をご確認ください。</p>
     <br>
-<% end %>
-<%= button_to "このままサービスの利用を続ける", property_assessment_path( agreed: "true" ), { method: :post} %>
-<%= button_to "サービスの利用をやめる（退会）", property_assessment_path( agreed: "false" ), { method: :post} %>
+
+    <table class="table-set">
+        <tr>
+            <th>不動産名</th>
+            <th>金額</th>
+        </tr>
+        <% @assessments.each do |assess| %>
+        <tr>
+            <td><%= assess.agency.name %></td>
+            <td><%= assess["temp_price"] %></td>
+        </tr>
+        <% end %>
+    </table>
+    <div class="assessment-button">
+        <%= button_to "サービスの利用を続ける", property_assessment_path( agreed: "true" ), { method: :post, class:'btn-lg btn-primary mx-3 mt-5'} %>
+        <%= button_to "サービスの利用をやめる（退会）", property_assessment_path( agreed: "false" ), { method: :post, class:'btn-lg btn-outline-primary mx-3 mt-5'} %>
+    </div>
+</div>
