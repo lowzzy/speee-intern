@@ -28,10 +28,7 @@
         <p>物件を売り出し中です。</p>
     <% elsif @user_status == 'candidate_found' %>
         <p>買い手候補がいます！詳細をご確認ください。</p>
-        <p>TODO:!!!!!!!!!!!!!!!!!ここで買い手候補一覧ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
-    <% elsif @user_status == 'candidate_chosen' %>
-        <p>家の売却を確定する場合は、売買契約の手続き継続に同意してください。</p>
-        <p>TODO:!!!!!!!!!!!!!!!!!ここで最終確認ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
+        <%= link_to '確認する', candidates_path %>
     <% elsif @user_status == 'buy_contract_agreed' %>
         <p>売買契約の手続き中です。</p>
     <% elsif @user_status == 'buy_contract_signed' %>

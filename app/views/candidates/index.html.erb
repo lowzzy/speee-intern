@@ -1,7 +1,7 @@
-<% if current_user.offers.present? %>
+<% if current_user.offers.present? && User.statuses[current_user.status] == User.statuses[:candidate_found] %>
 	売買契約締結先(購入希望者)リスト
 	<% current_user.offers.each do |o| %>
-  	<h1>名前 : <%= o.candidate_buyer.name %></h1>
+    <h1>名前 : <%= o.candidate_buyer.name %></h1>
     <p><%= o.price %></p>
     <p><%= o.candidate_buyer.hearing %></p>
     <%= button_to "この人と売買契約を締結する",
@@ -9,7 +9,9 @@
         data: { confirm: "#{o.candidate_buyer.name}さんで本当によろしいですか？" },
         method: :post %>
     <p>-------------------------------------------------------------------------</p>
-		<% end %>
+	<% end %>
+<% elsif User.statuses[current_user.status] > User.statuses[:candidate_found] %>
+	<h1>購入者は既に選択しています</h1>
 <% else %>
 	<h1>まだ購入希望者は現れていません</h1>
 <% end %>
