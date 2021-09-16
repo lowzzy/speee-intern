@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   end
 
   resources :mediation_contracts, only: [:new, :create]
-  get 'mediation_contracts', to: 'mediation_contracts#create' # 一般媒介契約create
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'home#index'
