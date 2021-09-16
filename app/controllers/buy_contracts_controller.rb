@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class BuyContractsController < ApplicationController
-
   def create
     if BuyContract.where(id: current_user.id).present?
       flash[:info] = '既に売買契約を締結しています'
