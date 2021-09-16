@@ -14,30 +14,37 @@
  *= require_self
  */
 
- body {
-    background-color: #fafafa;
+body {
+   background-color: #fafafa;
 }
 
 .btn {
-    border-radius: 5px;
+   border-radius: 5px;
 }
 
 /* btn-primary --- 同意ボタン、他ページリンクボタンなど、メインで使うボタン --- */
-.btn-primary, .btn-primary:active, .btn-primary:visited, .btn-primary:focus {
+.btn-primary,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
    background-color: #5CB04C !important;
    border-color: #5CB04C !important;
    box-shadow: #519e41;
 }
+
 .btn-primary:hover {
    background-color: #519e41 !important;
    border-color: #519e41 !important;
 }
 
 /* btn-outline-primary --- キャンセルボタンなど、サブ（メインより目立たせたくない場所）で使うボタン --- */
-.btn-outline-primary, .btn-outline-primary:focus, .btn-outline-primary:active{
+.btn-outline-primary,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
    border-color: #555555 !important;
    color: #555555 !important;
 }
+
 .btn-outline-primary:hover {
    background-color: #cccccc !important;
    border-color: #cccccc !important;
@@ -45,9 +52,13 @@
 }
 
 /* btn-link --- キャンセルボタン、戻るボタンなど、一番目立たせたくない場所で使うボタン --- */
-.btn-link, .btn-link:active, .btn-link:visited, .btn-link:focus {
+.btn-link,
+.btn-link:active,
+.btn-link:visited,
+.btn-link:focus {
    color: #555555 !important;
 }
+
 .btn-link:hover {
    color: #5CB04C !important;
 }
@@ -58,59 +69,74 @@
    color: #555555;
    font-weight: bold;
 }
+
 .alert-success {
    background-color: #deeeda;
 }
+
 .alert-danger {
    background-color: rgb(248, 214, 207);
 }
 
 /* 仮置きのテンプレート フォーム全体・背景の設定に使う */
-/* .form-template {
-   width: clamp(200px, 80vw, 500px);
-   padding: 50px 30px;
+.form-template {
+   padding: 60px 4vw;
    background-color: #ffffff;
-} */
+}
 
 /* form-control, form-select --- フォーム内のテキストボックス、セレクトボックスに使う --- */
-.form-control, .form-select {
+.form-control,
+.form-select {
    background-color: #ffffff !important;
    margin-bottom: 10px !important;
 }
+
 .form-label {
    font-weight: bold;
 }
 
- .navbar {
-    overflow: hidden;
-    position: relative;
-    width: 100%;
- }
- .row-right {
-    display: flex;
-    justify-content: flex-end;
- }
- .header-logo {
-    height: 100%;
-    width: auto;
-    position: absolute;
-    margin-left: clamp(0px, 1vw, 40px);
-    top: 0;
- }
- .avatar {
-    height: 37px;
+.navbar {
+   overflow: hidden;
+   position: relative;
+   width: 100%;
 }
 
- footer {
-     background-color: #F4F8F2;
- }
- .footer-logo {
-    height: 60px;
-    width: auto;
-    margin-left: clamp(0px, 1vw, 40px);
-    top: 0;
- }
- .info {
-     font-size: 12px;
-     margin: 0 30px;
- }
+.row-right {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.header-logo {
+   height: 100%;
+   width: auto;
+   position: absolute;
+   margin-left: clamp(0px, 1vw, 40px);
+   top: 0;
+}
+
+.avatar {
+   height: 37px;
+}
+
+footer {
+   background-color: #F4F8F2;
+}
+
+.footer-logo {
+   height: 60px;
+   width: auto;
+   margin-left: clamp(0px, 1vw, 40px);
+   top: 0;
+}
+
+.info {
+   font-size: 12px;
+   margin: 0 30px;
+}
+
+@media only screen and (max-width: 600px) {
+   .form-template {
+      width: 100vw;
+      padding: 10%;
+   }
+}
