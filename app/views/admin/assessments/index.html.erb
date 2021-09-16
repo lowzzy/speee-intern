@@ -1,16 +1,6 @@
-<% if User.statuses[current_user.status] == User.statuses[:property_assessed] &&  @assessments.present? %>
-	<h1>机上査定結果</h1>
-	<p><%= current_user.name %>さんの物件の査定結果をご確認ください。</p>
-	<% @assessments.each do |assess| %>
-  	<b><%= assess.agency.name %></b>
-    <p>金額：<span><%= assess.temp_price %></span>円</p>
-    <br>
-    <%= button_to "このままサービスの利用を続ける", property_assessment_path( agreed: "true" ), { method: :post} %>
-    <%= button_to "サービスの利用をやめる（退会）", property_assessment_path( agreed: "false" ), { method: :post} %>
-	<% end %>
-<% elsif User.statuses[current_user.status] > User.statuses[:property_assessed] %>
-	<h1>選択済みです</h1>
-<% else%>
-	<h1>まだ査定結果は出ていません。もうしばらくお待ちください</h1>
-<% end%>
-
+<% @assessments.each do |a| %>
+	<p>ユーザ：<%= User.find(a.user_id).name %></p>
+	<p>不動産会社：<%= Agency.find(a.agency_id).name %></p>
+	<p>査定金額：<%= a.temp_price %></p>
+  <p>-----------------------------------</p>
+<% end %>
