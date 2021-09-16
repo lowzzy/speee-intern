@@ -2,7 +2,7 @@
 
 class MediationContractsController < ApplicationController
   before_action :authenticate_user!
-  
+
   # MediationContracには、Assessmentと同じ値が入る
   def create
     as = Assessment.where(user_id: current_user.id)
