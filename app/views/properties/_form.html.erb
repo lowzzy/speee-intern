@@ -1,39 +1,45 @@
 <%= javascript_pack_tag 'property/new' %>
-
 <%= form_with model: @property , local: true do |form| %>
-  <div >
-    <%= form.label '都道府県' %>
-    <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
+<div class="form-template property-form">
+  <div class="float-two">
+    <div class="form-group float-item me-2">
+      <%= form.label '都道府県', class:"form-label" %>
+      <%= form.select :prefecture,  @prefectures_list, {}, {id: 'prefecture', class:'form-select'} %>
+    </div>
+    <div id="city_select" class="form-group float-item ms-2">
+      <%= form.label '都市', class:"form-label" %>
+      <%= form.select :city ,[[]] , {}, {id: 'city', class:'form-select'} %>
+    </div>
   </div>
-  <div id="city_select">
-    <%= form.label '都市' %>
-    <%= form.select :city ,[[]] ,id: 'city' %>
-  </div>
-
-  <div >
-    <%= form.label '所在地' %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div>
-    <%= form.label '築年数' %>
-    <%= form.number_field :age %>
+  <div class="form-group">
+    <%= form.label '所在地', class:"form-label" %>
+    <%= form.text_field :address, class:'form-control' %>
   </div>
 
-  <div>
-    <%= form.label '物件種別' %>
-    <%= form.select :floor_plan, {'一戸建て': 1, '土地': 2, 'マンション': 3, '倉庫・工場': 4}, { include_blank: '選択してください'} %>
-  </div>
+  <div class="float-two mt-5">
+    <div class="form-group float-item me-2">
+      <%= form.label '築年数', class:"form-label" %>
+      <%= form.number_field :age, class:'form-control' %>
+    </div>
 
-  <div>
-    <%= form.label '建物面積' %>
-    <%= form.number_field :square_measure %>平方メートル
+    <div class="form-group float-item ms-2">
+      <%= form.label '物件種別', class:"form-label" %>
+      <%= form.select :floor_plan, {'一戸建て': 1, '土地': 2, 'マンション': 3, '倉庫・工場': 4}, { include_blank: '選択してください'}, class:'form-select' %>
+    </div>
   </div>
-
-  <div>
-    <%= form.label '間取り' %>
-    <%= form.text_field :kinds %>(ex: 1LDKなど)
+  <div class="form-groups">
+    <%= form.label '建物面積', class:"form-label" %>
+    <%= form.label '(平方メートル)', class:"form-label fw-light" %>
+    <%= form.number_field :square_measure, class:'form-control' %>
   </div>
+  <div class="form-group">
+    <%= form.label '間取り ', class:"form-label" %>
+    <%= form.label '(1LDKなど)', class:"form-label fw-light" %>
+    <%= form.text_field :kinds, class:'form-control' %>
+  </div>
+</div>
+<div class="submit-button">
+  <%= form.submit "類似物件を表示（無料）", data: { disable_with: 'Submitting...' }, class: 'btn-lg btn-primary mt-5 submit-button' %>
+</div>
 
-  <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
 <% end %>

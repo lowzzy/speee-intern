@@ -16,7 +16,7 @@
         <p class="text-white mb-0"><%= current_user.name %> さん</p>
         <%= image_tag 'animal_avatar.png', class:"rounded-circle avatar m-3"%>
       <% else %>
-        <%= link_to 'まずは査定してみる(無料)', new_property_path, class:'nav-link active text-white fw-bold' %>
+        <%= link_to 'まずは査定してみる(無料)', new_property_path, data: {"turbolinks" => false}, class:'nav-link active text-white fw-bold' %>
         <%= link_to 'ログイン', new_user_session_path, class:'nav-link active text-white' %>
       <% end %>
     </div>
