@@ -1,46 +1,49 @@
-<div class='dashboard'>
-    <h1>ダッシュボード</h1>
-    <p>次のステップ： </p>
-    <% if @user_status == 'account_created' %>
-        <p>不動産売却委任契約の内容をご確認ください。</p>
-        <%= link_to '確認する', delegation_contract_path %>
-    <% elsif @user_status == 'delegation_agreed' %>
-        <p>鍵の引き渡しについて確認事項をご確認ください。</p>
-        <%= link_to '確認する', docs_agree_path %>
-    <% elsif @user_status == 'docs_agreed' %>
-        <p>契約書類を郵送中です。</p>
-        <p>お手元に届きましたら、ご返送をお願いいたします。</p>
-        <%= link_to '返送手順を確認する', mailing_direction_path %>
-    <% elsif @user_status == 'docs_sent' %>
-        <p>契約書類を郵送中です。</p>
-        <p>お手元に届きましたら、ご返送をお願いいたします。</p>
-        <%= link_to '郵送手順を確認する', mailing_direction_path %>
-    <% elsif @user_status == 'docs_returned' %>
-        <p>不動産会社を選定中です。</p>
-    <% elsif @user_status == 'agency_selected' %>
-        <p>机上査定を依頼中です。</p>
-    <% elsif @user_status == 'property_assessed' %>
-        <p>査定結果をご確認ください。</p>
-        <%= link_to '確認する', assessments_path %>
-    <% elsif @user_status == 'mediation_agreed' %>
-        <p>不動産会社との契約手続き中です。</p>
-    <% elsif @user_status == 'mediation_signed' %>
-        <p>物件を売り出し中です。</p>
-    <% elsif @user_status == 'candidate_found' %>
-        <p>買い手候補がいます！詳細をご確認ください。</p>
-        <p>TODO:!!!!!!!!!!!!!!!!!ここで買い手候補一覧ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
-    <% elsif @user_status == 'candidate_chosen' %>
-        <p>家の売却を確定する場合は、売買契約の手続き継続に同意してください。</p>
-        <p>TODO:!!!!!!!!!!!!!!!!!ここで最終確認ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
-    <% elsif @user_status == 'buy_contract_agreed' %>
-        <p>売買契約の手続き中です。</p>
-    <% elsif @user_status == 'buy_contract_signed' %>
-        <p>入金/引き渡し手続き中です。</p>
-    <% elsif @user_status == 'all_completed' %>
-        <p>売却が完了しました。サービスをご利用いただきありがとうございました。</p>
-    <% elsif @user_status == 'cancel' %>
-        <p>取引をキャンセルしました。ご利用いただきありがとうございました。</p>
-    <% else %>
-        <p>読み込みエラー</p>
-    <% end %>
+<div class="dashboard-page-body">
+    <div class='dashboard'>
+        <h3 class="fw-bold">現在の売却状況</h3>
+        <div class="pt-3 pb-2">
+            <% if @user_status == 'account_created' %>
+                <p class="pb-3">不動産売却委任契約の内容をご確認ください。</p>
+                <%= link_to '確認する', delegation_contract_path, class:'btn btn-primary' %>
+            <% elsif @user_status == 'delegation_agreed' %>
+                <p class="pb-3">鍵の引き渡しについて確認事項をご確認ください。</p>
+                <%= link_to '確認する', docs_agree_path, class:'btn btn-primary' %>
+            <% elsif @user_status == 'docs_agreed' %>
+                <p>契約書類を郵送中です。</p>
+                <p class="pb-3">お手元に届きましたら、ご返送をお願いいたします。</p>
+                <%= link_to '返送手順を確認する', mailing_direction_path, class:'btn btn-primary' %>
+            <% elsif @user_status == 'docs_sent' %>
+                <p>契約書類を郵送中です。</p>
+                <p class="pb-3">お手元に届きましたら、ご返送をお願いいたします。</p>
+                <%= link_to '郵送手順を確認する', mailing_direction_path, class:'btn btn-primary' %>
+            <% elsif @user_status == 'docs_returned' %>
+                <p>不動産会社を選定中です。</p>
+            <% elsif @user_status == 'agency_selected' %>
+                <p>机上査定を依頼中です。</p>
+            <% elsif @user_status == 'property_assessed' %>
+                <p class="pb-3">査定結果をご確認ください。</p>
+                <%= link_to '確認する', assessments_path, class:'btn btn-primary' %>
+            <% elsif @user_status == 'mediation_agreed' %>
+                <p>不動産会社との契約手続き中です。</p>
+            <% elsif @user_status == 'mediation_signed' %>
+                <p>物件を売り出し中です。</p>
+            <% elsif @user_status == 'candidate_found' %>
+                <p class="pb-3">買い手候補がいます！詳細をご確認ください。</p>
+                <p>TODO:!!!!!!!!!!!!!!!!!ここで買い手候補一覧ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
+            <% elsif @user_status == 'candidate_chosen' %>
+                <p class="pb-3">家の売却を確定する場合は、売買契約の手続き継続に同意してください。</p>
+                <p>TODO:!!!!!!!!!!!!!!!!!ここで最終確認ページへのリンクを貼る!!!!!!!!!!!!!!!!!!!!!!!!</p>
+            <% elsif @user_status == 'buy_contract_agreed' %>
+                <p>売買契約の手続き中です。</p>
+            <% elsif @user_status == 'buy_contract_signed' %>
+                <p>入金/引き渡し手続き中です。</p>
+            <% elsif @user_status == 'all_completed' %>
+                <p>売却が完了しました。サービスをご利用いただきありがとうございました。</p>
+            <% elsif @user_status == 'cancel' %>
+                <p>取引をキャンセルしました。ご利用いただきありがとうございました。</p>
+            <% else %>
+                <p>読み込みエラー</p>
+            <% end %>
+        </div>
+    </div>
 </div>
