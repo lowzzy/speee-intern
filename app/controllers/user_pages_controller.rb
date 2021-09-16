@@ -7,4 +7,6 @@ class UserPagesController < ApplicationController
   end
 
   def cancel; end
+
+  def mailing_direction; end
 end

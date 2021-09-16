@@ -1,0 +1,14 @@
+<h1>買い手一覧表示</h1>
+<% @candidate_all.each do |c| %>
+  <h3>＜名前＞</h3>
+  <%= c.name %>
+  <h3>＜住所＞</h3>
+  <%= c.address %>
+  <h3>＜コメント＞</h3>
+  <%= c.hearing %>
+  <h3>＜金額＞</h3>
+  <%= c.offer.price %>円
+  <h3>＜取引日時＞</h3>
+  <%= c.offer.transacted_on %>
+  <h3>----------------------</h3>
+<% end %>

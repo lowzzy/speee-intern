@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.index ["user_id"], name: "index_assessments_on_user_id"
   end
 
+  create_table "candidate_buyers", charset: "utf8mb4", force: :cascade do |t|
+    t.text "hearing", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name", null: false
+    t.string "address", null: false
+  end
+
   create_table "cities", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.integer "prefecture_id"
@@ -59,6 +67,16 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "agency_id"
     t.index ["user_id"], name: "index_mediation_contracts_on_user_id"
+  end
+
+  create_table "offers", charset: "utf8mb4", force: :cascade do |t|
+    t.integer "price", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "transacted_on", null: false
+    t.bigint "candidate_buyer_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_offers_on_user_id"
   end
 
   create_table "prefectures", charset: "utf8mb4", force: :cascade do |t|
@@ -101,4 +119,5 @@ ActiveRecord::Schema.define(version: 2021_09_15_053231) do
   add_foreign_key "assessments", "properties"
   add_foreign_key "assessments", "users"
   add_foreign_key "mediation_contracts", "users"
+  add_foreign_key "offers", "users"
 end

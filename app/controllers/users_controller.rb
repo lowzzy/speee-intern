@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     case params[:agreed]
     when 'true'
       current_user.update(status: :docs_agreed)
-      redirect_to home_path
+      redirect_to mailing_direction_path
     when 'false'
       current_user.update(status: :cancel)
       redirect_to cancel_path
