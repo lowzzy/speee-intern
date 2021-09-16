@@ -16,8 +16,8 @@ Rails.application.routes.draw do
         get 'user_select'
       end
     end
-    get 'users', to: 'admin_pages#index_users'
-    post 'users', to: 'admin_pages#update_user'
+    get 'users', to: 'users#index_users'
+    post 'users', to: 'users#update_user'
   end
 
   resources :buy_contracts
