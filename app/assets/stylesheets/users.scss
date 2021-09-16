@@ -2,11 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.btn{
-  margin-top: 8px;
-  margin-bottom: 8px;
-}
-
 .all_contents{
   text-align: center;
 }
@@ -14,9 +9,12 @@
 	width: 150px;
 	height: 150px;
 }
+.btn_margin{
+  margin: 10px;
+}
 .box_head{
 
-  height: 400px;
+  height: 350px;
 
   margin-top: 50px;
   margin-left: 300px;
