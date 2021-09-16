@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+ }
+ .row-right {
+    display: flex;
+    justify-content: flex-end;
+ }
+ .header-logo {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    margin-left: clamp(0px, 1vw, 40px);
+    top: 0;
+ }
+ .avatar {
+     height: 37px;
+ }
