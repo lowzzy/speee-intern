@@ -31,6 +31,8 @@
         <p>入金待ち/引き取り待ち</p>
     <% elsif @user_status == 'all_completed' %>
         <p>売却完了</p>
+    <% elsif @user_status == 'cancel' %>
+        <p>取引をキャンセルしました。ご利用いただきありがとうございました。</p>
     <% else %>
         <p>読み込みエラー</p>
     <% end %>

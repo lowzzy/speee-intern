@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   post 'docs_agree', to: 'users#docs_agree'
   get 'property_assessment', to: 'users#property_assessment' # 机上査定結果を見てからの合意画面
   post 'property_assessment', to: 'users#property_assessment'
+  post 'confirm_cancellation', to: 'users#confirm_cancellation' # キャンセル確定画面
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',
