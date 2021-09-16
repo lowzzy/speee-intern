@@ -27,4 +27,26 @@
     color:black;
     text-align: left;
     }
+
+  .form-body {
+    background-color: rgb(250, 250, 250);
+  }
+}
+
+.form-vector {
+    display: block;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    object-fit: cover;
+    margin: 0;
+    width: 55vw;
+}
+
+.form-row {
+    display: flex;
+}
+
+.form-template {
+    min-height: clamp(500px, 80vh, 1000px);
 }
