@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :assessments, only: [:index]
   get '/home' , to: 'user_pages#home' # userのhome画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
+  get '/buy_contract_agreed', to: 'user_pages#agree_buy_contract' # サービスからの退会画面
   get '/mailing_direction', to: 'user_pages#mailing_direction' # 鍵書類の送り方説明画面
   
   namespace :admin do
@@ -16,6 +17,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :buy_contracts
+
+  resources :candidates, only: [:index]
 
   resources :mediation_contracts, only: [:new, :create]
 
@@ -42,6 +47,7 @@ Rails.application.routes.draw do
   post 'docs_agree', to: 'users#docs_agree'
   get 'property_assessment', to: 'users#property_assessment' # 机上査定結果を見てからの合意画面
   post 'property_assessment', to: 'users#property_assessment'
+  post 'confirm_cancellation', to: 'users#confirm_cancellation' # キャンセル確定画面
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',

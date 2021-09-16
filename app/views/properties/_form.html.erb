@@ -1,27 +1,39 @@
 <%= javascript_pack_tag 'property/new' %>
 
-<%= form_with model: Property.new , local: true do |form| %>
-  <div class="form-template">
-    <div class="form-goup">
-      <%= form.label '都道府県', class:"form-label" %>
-      <%= form.select :prefecture,  @prefectures_list, {}, {id: 'prefecture', class:'form-select'} %>
-    </div>
-    <div id="city_select" class="form-goup">
-      <%= form.label '都市', class:"form-label" %>
-      <%= form.select :city ,[[]] , {}, {id: 'city', class:'form-select'} %>
-    </div>
-    <div class="form-goup">
-      <%= form.label '駅', class:"form-label" %>
-      <%= form.text_field :station, class:'form-control' %>
-    </div>
-    <div class="form-goup">
-      <%= form.label '築年数', class:"form-label" %>
-      <%= form.number_field :year, class:'form-control' %>
-    </div>
-    <div class="form-goup">
-      <%= form.label '物件種別', class:"form-label" %>
-      <%= form.select :kinds, {'鉄筋': 1, '強鉄筋': 2, '木造': 3}, { include_blank: '選択してください'}, class:'form-control' %>
-    </div>
+<%= form_with model: @property , local: true do |form| %>
+  <div >
+    <%= form.label '都道府県' %>
+    <%= form.select :prefecture,  @prefectures_list,id: 'prefecture' %>
   </div>
-  <%= form.submit "登録", data: { disable_with: 'Submitting...', class: 'btn btn-primary' } %>
+  <div id="city_select">
+    <%= form.label '都市' %>
+    <%= form.select :city ,[[]] ,id: 'city' %>
+  </div>
+
+  <div >
+    <%= form.label '所在地' %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label '築年数' %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+    <%= form.label '物件種別' %>
+    <%= form.select :floor_plan, {'一戸建て': 1, '土地': 2, 'マンション': 3, '倉庫・工場': 4}, { include_blank: '選択してください'} %>
+  </div>
+
+  <div>
+    <%= form.label '建物面積' %>
+    <%= form.number_field :square_measure %>平方メートル
+  </div>
+
+  <div>
+    <%= form.label '間取り' %>
+    <%= form.text_field :kinds %>(ex: 1LDKなど)
+  </div>
+
+  <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
 <% end %>

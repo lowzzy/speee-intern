@@ -22,6 +22,7 @@ class User < ApplicationRecord
   }
 
   has_one :property
+  has_one :buy_contract
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

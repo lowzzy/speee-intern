@@ -1,0 +1,5 @@
+<% if current_user.assessments.present? %>
+    <%= link_to "査定結果を確認し、手続き継続に同意する", assessments_path %>
+<% else %>
+    <p>不動産会社選定中/机上査定中</p>
+<% end %>
