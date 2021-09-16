@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
     return unless property_params[:prefecture]
 
     # rubocop:disable all
-    uri = URI.parse("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=#{Date.today.year - 2}#{Date.today.month}&to=#{Date.today.year}#{Date.today.month}&area=#{property_params[:prefecture]}&city=#{property_params[:city]}")
+    uri = URI.parse("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=#{Date.today.year - 1}#{Date.today.month}&to=#{Date.today.year}#{Date.today.month}&area=#{property_params[:prefecture]}&city=#{property_params[:city]}")
     # rubocop:enable all
     response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
       http.open_timeout = 5 # responseが最初に帰ってくるまでの時間

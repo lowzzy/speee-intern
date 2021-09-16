@@ -1,0 +1,17 @@
+<h1>査定額登録</h1>
+
+<%= form_with model: @assessment, url: admin_assessments_path, local: true do |form| %>
+  <div >
+    <%= form.label :user_id, 'ユーザ' %>
+    <%= form.select :user_id, User.all.collect { |u| ["#{u.name} - #{u.email}", u.id ] } %>
+  </div>
+  <div>
+    <%= form.label :agency_id, '不動産会社' %>
+    <%= form.select :agency_id, Agency.all.collect { |a| [ a.name, a.id ] } %>
+  </div>
+  <div>
+    <%= form.label :temp_price, '査定結果' %>
+    <%= form.number_field :temp_price %>
+  </div>
+  <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
+<% end %>
