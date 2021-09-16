@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/home' , to: 'user_pages#home' # userのhome画面
   get '/cancel', to: 'user_pages#cancel' # サービスからの退会画面
   get '/buy_contract_agreed', to: 'user_pages#agree_buy_contract' # サービスからの退会画面
+  get '/mailing_direction', to: 'user_pages#mailing_direction' # 鍵書類の送り方説明画面
   
   namespace :admin do
     resources :agencies, only: [:new, :index, :create]
@@ -44,6 +45,8 @@ Rails.application.routes.draw do
   post 'delegation_contract', to: 'users#delegation_contract'
   get 'docs_agree', to: 'users#docs_agree' # 鍵書類郵送の合意画面
   post 'docs_agree', to: 'users#docs_agree'
+  get 'property_assessment', to: 'users#property_assessment' # 机上査定結果を見てからの合意画面
+  post 'property_assessment', to: 'users#property_assessment'
 
   devise_for :admin_users, controllers: {
     sessions: 'admin_users/sessions',

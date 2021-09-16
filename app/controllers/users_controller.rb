@@ -21,6 +21,23 @@ class UsersController < ApplicationController
     case params[:agreed]
     when 'true'
       current_user.update(status: :docs_agreed)
+      redirect_to mailing_direction_path
+    when 'false'
+      current_user.update(status: :cancel)
+      redirect_to cancel_path
+    end
+  end
+
+  # 机上査定結果を見た後
+  # 一般媒介契約合意アクション
+  def property_assessment
+    case params[:agreed]
+    when 'true'
+      # サービスの利用に同意したら、statusを変更し、MediationContractをcreateする
+      current_user.update(status: :mediation_agreed)
+      current_user.assessments.each do |a|
+        MediationContract.create(agency_id: a.agency_id, user_id: current_user.id, temp_price: a.temp_price)
+      end
       redirect_to home_path
     when 'false'
       current_user.update(status: :cancel)
