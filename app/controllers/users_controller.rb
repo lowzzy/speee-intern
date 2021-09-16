@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       current_user.update(status: :delegation_agreed)
       redirect_to docs_agree_path
     when 'false'
-      current_user.update(status: :cancel)
       redirect_to cancel_path
     end
   end
@@ -23,7 +22,6 @@ class UsersController < ApplicationController
       current_user.update(status: :docs_agreed)
       redirect_to mailing_direction_path
     when 'false'
-      current_user.update(status: :cancel)
       redirect_to cancel_path
     end
   end
@@ -40,9 +38,17 @@ class UsersController < ApplicationController
       end
       redirect_to home_path
     when 'false'
-      current_user.update(status: :cancel)
       redirect_to cancel_path
     end
+  end
+
+  # キャンセル確定アクション
+  def confirm_cancellation
+    case params[:agreed]
+    when 'true'
+      current_user.update(status: :cancel)
+    end
+    redirect_to home_path
   end
 
   private
