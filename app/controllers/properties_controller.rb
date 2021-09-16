@@ -12,7 +12,7 @@ class PropertiesController < ApplicationController
     if @property.save
       flash[:info] = '登録が完了しました'
       # ここにapiの処理を書きたい
-      retry_on_error{nearly}
+      retry_on_error { nearly }
       render :price
     else
       flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.join('. ')}"
@@ -20,28 +20,26 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def price
-  end
+  def price; end
 
   private
 
   def nearly
-    if postal_code = property_params[:prefecture]
-      params = URI.encode_www_form({zipcode: postal_code})
-      uri = URI.parse("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=#{Date.today.year-2}#{Date.today.month}&to=#{Date.today.year}#{Date.today.month}&area=#{property_params[:prefecture]}&city=#{property_params[:city]}")
-      response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
-        http.open_timeout = 5 # responseが最初に帰ってくるまでの時間
-        http.read_timeout = 10 # ページを実際に返してくれるまでの時間
-        http.get(uri.request_uri)
-      end
-      result = JSON.parse(response.body)
-      if result["data"].present?
-        puts result["data"]
-        @nearly = result['data']
-      else    
-        raise 'EmptyError'
-      end
+    return unless property_params[:prefecture]
+
+    # rubocop:disable all
+    uri = URI.parse("https://www.land.mlit.go.jp/webland/api/TradeListSearch?from=#{Date.today.year - 2}#{Date.today.month}&to=#{Date.today.year}#{Date.today.month}&area=#{property_params[:prefecture]}&city=#{property_params[:city]}")
+    # rubocop:enable all
+    response = Net::HTTP.start(uri.host, uri.port, use_ssl: uri.scheme == 'https') do |http|
+      http.open_timeout = 5 # responseが最初に帰ってくるまでの時間
+      http.read_timeout = 10 # ページを実際に返してくれるまでの時間
+      http.get(uri.request_uri)
     end
+    result = JSON.parse(response.body)
+
+    raise 'EmptyError' unless result['data'].present?
+
+    @nearly = result['data']
   end
 
   def retry_on_error(times: 3)
@@ -49,7 +47,7 @@ class PropertiesController < ApplicationController
     begin
       try += 1
       yield
-    rescue
+    rescue StandardError
       retry if try < times
       false
     end
@@ -57,7 +55,7 @@ class PropertiesController < ApplicationController
 
   def property_params
     params.require(:property)
-          .permit(:prefecture, :city, 
+          .permit(:prefecture, :city,
                   :age, :kinds, :address,
                   :square_measure, :floor_plan)
   end

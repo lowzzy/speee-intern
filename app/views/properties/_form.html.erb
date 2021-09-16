@@ -11,7 +11,7 @@
   </div>
 
   <div >
-    <%= form.label '住所' %>
+    <%= form.label '所在地' %>
     <%= form.text_field :address %>
   </div>
 
@@ -22,11 +22,11 @@
 
   <div>
     <%= form.label '物件種別' %>
-    <%= form.select :floor_plan, {'鉄筋': 1, '強鉄筋': 2, '木造': 3}, { include_blank: '選択してください'} %>
+    <%= form.select :floor_plan, {'一戸建て': 1, '土地': 2, 'マンション': 3, '倉庫・工場': 4}, { include_blank: '選択してください'} %>
   </div>
 
   <div>
-    <%= form.label '広さ' %>
+    <%= form.label '建物面積' %>
     <%= form.number_field :square_measure %>平方メートル
   </div>
 
