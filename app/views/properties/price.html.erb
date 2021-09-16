@@ -2,7 +2,7 @@
   <h2>類似物件</h2>
 </div>
 <div class="set-right-url">
-  <%= link_to "査定に戻る", new_property_path %>
+  <%= link_to "査定に戻る", new_property_path ,data: {"turbolinks" => false}%>
 </div>
 <% if @nearly.present? %>
   <table class='table-set'>
