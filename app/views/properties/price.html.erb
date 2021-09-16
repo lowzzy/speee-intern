@@ -1,3 +1,21 @@
-PRICE!
-
-<%= link_to "アカウント登録する : #{params[:id]}", new_user_registration_path(property_id: params[:id]) %>
+<%= link_to "登録する : #{@property.id}", new_user_registration_path(property_id: @property.id) %>
+<%= link_to "査定に戻る", new_property_path %>
+<h2>似た物件の表示</h2>
+<% if @nearly.present? %>
+  <% @nearly.each_with_index do |nearly_property, i| %>
+    <%= nearly_property["Type"] %>
+    <%= nearly_property["Prefecture"] %>
+    <%= nearly_property["Municipality"] %>
+    <%= nearly_property["DistrictName"] %>
+    取引価格<%= nearly_property["TradePrice"] %>円
+    間取り<%= nearly_property["FloorPlan"] %>
+    面積<%= nearly_property["Area"] %>平方メートル
+    建築年<%= nearly_property["BuildingYear"] %>
+    今後の利用目的<%= nearly_property["Purpose"] %>
+    用途<%= nearly_property["Use"] %>
+    <br><br>
+    <% break if i == 5 %>
+  <% end %>
+  <% else %>
+   <h1>データがありません。</h1>
+  <% end %>
