@@ -1,6 +1,7 @@
 <div class='dashboard'>
     <h1>ダッシュボード</h1>
     <p>次のステップ： </p>
+    <%= @user_status %>
     <h1><%= current_user.name %>さま、こんにちは</h1>
     <% if @user_status == 'account_created' %>
         <p>サービスへの売却委任契約に同意する</p>
@@ -13,7 +14,7 @@
         <p>書類郵送中。届いたら返送する</p>
         <%= link_to '郵送手順の確認', mailing_direction_path %>
     <% elsif @user_status == 'docs_returned' %>
-    <% render 'docs_returned' %>
+        <%= render 'docs_returned' %>
     <% elsif @user_status == 'agency_selected' %>
         <p>不動産会社選定中/机上査定中</p>
     <% elsif @user_status == 'property_assessed' %>
