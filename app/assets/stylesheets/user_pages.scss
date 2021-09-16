@@ -71,3 +71,15 @@
     width: 90%;
   }
 }
+
+// -------- キャンセル（退会）ページ -----------
+
+.cancel-page {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cancel-button {
+  display: flex;
+}
