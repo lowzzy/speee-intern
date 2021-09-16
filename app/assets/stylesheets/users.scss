@@ -16,13 +16,8 @@
     width: 55vw;
 }
 
-.row {
-    --bs-gutter-x: 0;
-}
-
-.form-control,
-.form-select {
-    max-width: 600px;
+.form-row {
+    display: flex;
 }
 
 .form-template {

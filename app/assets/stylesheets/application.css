@@ -89,6 +89,7 @@ body {
 .form-select {
    background-color: #ffffff !important;
    margin-bottom: 10px !important;
+   max-width: 600px;
 }
 
 .form-label {

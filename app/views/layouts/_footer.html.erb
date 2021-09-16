@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col-sm-4 col-md">
             <% if current_user.present? %>
-            <%= link_to home_path do %> <%= image_tag 'logo.png', class:'footer-logo' %> <% end %>
+                <%= link_to home_path do %> <%= image_tag 'logo.png', class:'footer-logo' %> <% end %>
             <% else %>
-            <%= link_to root_path do %> <%= image_tag 'logo.png', class:'footer-logo' %> <% end %>
+                <%= link_to root_path do %> <%= image_tag 'logo.png', class:'footer-logo' %> <% end %>
             <% end %>
             <p class="info text-black-50 fw-bold">電話: 000-000-0000</p>
             <p class="info text-black-50 fw-bold">メール: rakuraku@hudosan.com</p>
@@ -12,24 +12,24 @@
             <small class="info mt-4 d-block mb-3 text-black-50">©️2021 らくらく不動産売却</small>
         </div>
         <% if current_user.present? %>
-        <div class="col-md mt-4">
-            <h6>サービス</h6>
-            <ul class="list-unstyled text-small">
-                <li class="mb-1"><%= link_to '契約状況', home_path, class:'small nav-link active text-black-50' %></li>
-            </ul>
-        </div>
+            <div class="col-md mt-4">
+                <h6>サービス</h6>
+                <ul class="list-unstyled text-small">
+                    <li class="mb-1"><%= link_to '契約状況', home_path, class:'small nav-link active text-black-50' %></li>
+                </ul>
+            </div>
         <% end %>
         <div class="col-md mt-4">
             <h6>アカウント</h6>
             <ul class="list-unstyled text-small">
                 <% if current_user.present? %>
-                <li class="mb-1">
-                    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:'small nav-link active text-black-50'%>
-                </li>
+                    <li class="mb-1">
+                        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete , class:'small nav-link active text-black-50'%>
+                    </li>
                 <% else %>
-                <li class="mb-1"><%= link_to '簡易査定', new_property_path, class:'small nav-link active text-black-50' %>
-                </li>
-                <li class="mb-1">
+                    <li class="mb-1"><%= link_to '簡易査定', new_property_path, class:'small nav-link active text-black-50' %>
+                    </li>
+                    <li class="mb-1">
                     <%= link_to 'ログイン', new_user_session_path, class:'small nav-link active text-black-50' %></li>
                 <% end %>
             </ul>
