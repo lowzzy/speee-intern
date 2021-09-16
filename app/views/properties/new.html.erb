@@ -1,5 +1,11 @@
+<% if current_user.present? %>
+<h1>登録済みです</h1>
+<%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %>
+
+<% else %>
 <h1>家情報</h1>
 
 <div>
     <%= render 'form' %>
 </div>
+<% end %>

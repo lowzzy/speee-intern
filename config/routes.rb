@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :buy_contracts
+
+  resources :candidates, only: [:index]
+
   resources :mediation_contracts, only: [:new, :create]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

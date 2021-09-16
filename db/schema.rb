@@ -46,11 +46,13 @@ ActiveRecord::Schema.define(version: 2021_09_15_090314) do
   end
 
   create_table "buy_contracts", charset: "utf8mb4", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "buyer_id"
     t.integer "final_price"
+    t.bigint "user_id"
+    t.bigint "candidate_buyer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["candidate_buyer_id"], name: "index_buy_contracts_on_candidate_buyer_id"
+    t.index ["user_id"], name: "index_buy_contracts_on_user_id"
   end
 
   create_table "candidate_buyers", charset: "utf8mb4", force: :cascade do |t|
@@ -126,6 +128,8 @@ ActiveRecord::Schema.define(version: 2021_09_15_090314) do
   add_foreign_key "assessments", "agencies"
   add_foreign_key "assessments", "properties"
   add_foreign_key "assessments", "users"
+  add_foreign_key "buy_contracts", "candidate_buyers"
+  add_foreign_key "buy_contracts", "users"
   add_foreign_key "mediation_contracts", "users"
   add_foreign_key "offers", "users"
 end

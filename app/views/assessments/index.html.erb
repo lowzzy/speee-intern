@@ -1,4 +1,6 @@
-<h1>査定結果</h1>
+<% if User.statuses[current_user.status] == 
+User.statuses[:property_assessed] &&  @assessments.present? %>
+<h1>机上査定結果</h1>
 <p><%= current_user.name %>さんの物件</p>
 <br>
 <% @assessments.each do |assess| %>
@@ -6,3 +8,9 @@
     <p>金額：<span><%= assess.temp_price %></span>円</p>
     <br>
 <% end %>
+<% elsif User.statuses[current_user.status] > 
+User.statuses[:property_assessed] %>
+<h1>選択済みです</h1>
+<% else%>
+<h1>まだ査定結果は出ていません。もうしばらくお待ちください</h1>
+<% end%>

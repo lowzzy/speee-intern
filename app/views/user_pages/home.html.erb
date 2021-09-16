@@ -11,17 +11,17 @@
     <% elsif @user_status == 'docs_sent' %>
         <p>書類郵送中。届いたら返送する</p>
     <% elsif @user_status == 'docs_returned' %>
-        <p>不動産会社選定中/机上査定中</p>
+    <% render 'docs_returned' %>
     <% elsif @user_status == 'agency_selected' %>
         <p>不動産会社選定中/机上査定中</p>
     <% elsif @user_status == 'property_assessed' %>
-        <p>査定結果を確認し、手続き継続に同意する</p>
+    <%= link_to "査定結果を確認し、手続き継続に同意する", assessments_path %>
     <% elsif @user_status == 'mediation_agreed' %>
         <p>不動産会社との契約手続き中</p>
     <% elsif @user_status == 'mediation_signed' %>
         <p>物件売り出し中</p>
     <% elsif @user_status == 'candidate_found' %>
-        <p>買い手候補がいます！確認してみましょう</p>
+    <%= link_to "買い手候補がいます！確認してみましょう",  candidates_path %>
     <% elsif @user_status == 'candidate_chosen' %>
         <p>売買契約の手続き継続に同意する</p>
     <% elsif @user_status == 'buy_contract_agreed' %>
