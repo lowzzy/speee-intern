@@ -18,6 +18,8 @@ Rails.application.routes.draw do
     end
     get 'users', to: 'users#index_users'
     post 'users', to: 'users#update_user'
+    resources :assessments, only: [:new, :index, :create]
+    # post :assessments, to: 'assessments#create'
   end
 
   resources :buy_contracts
