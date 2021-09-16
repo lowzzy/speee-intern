@@ -2,6 +2,7 @@
 
 module Admin
   class CandidatesController < AdminController
+    before_action :authenticate_admin_user!
     # Get 買い手候補登録画面
     def new
       @candidate_buyer = CandidateBuyer.new
