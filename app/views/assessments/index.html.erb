@@ -15,6 +15,7 @@
         </tr>
         <% end %>
     </table>
+    <p class="mt-4"><span class='font_red'>※ここからは利用料金がかかります。</span></p>
     <div class="assessment-button">
         <%= button_to "サービスの利用を続ける", property_assessment_path( agreed: "true" ), { method: :post, class:'btn-lg btn-primary mx-3 mt-5'} %>
         <%= button_to "サービスの利用をやめる（退会）", property_assessment_path( agreed: "false" ), { method: :post, class:'btn-lg btn-outline-primary mx-3 mt-5'} %>
