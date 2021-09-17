@@ -1,6 +1,6 @@
 ![alt](./app/assets/images/logo.png)
 ![alt](./LP.png)
-![alt](./home.png)
+![alt](./home_user.png)
 
 # らくらく不動産売却
 
