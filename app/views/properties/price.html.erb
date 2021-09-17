@@ -20,7 +20,10 @@
       <th>用途</th>
       </tr>
     <% @nearly.each_with_index do |nearly_property, i| %>
-      <% next if !@type.include?(nearly_property["Type"]) %>
+        <% if i == (@nearly_cnt-1) %>
+            <h3>申し訳ありません。類似物件データがありません。</h3>
+          <% end %>
+        <% next if !@type.include?(nearly_property["Type"]) %>
         <% cnt += 1 %>
         <tr>
           <td><%= nearly_property["Prefecture"] %></td>
@@ -34,15 +37,12 @@
           <td><%= nearly_property["Purpose"] %></td>
           <td><%= nearly_property["Use"] %></td>
         </tr>
+        <%= i %>
         <% break if cnt == 5 %>
-        <% if i == @nearly_cnt %>
-          <h1>データがありません。</h1>
-          <%= link_to "査定に戻る", new_property_path %>
-        <% end %>
     <% end %>
   </table>
 <% else %>
-   <h1>データがありません。</h1>
+   <h3>申し訳ありません。類似物件データがありません。</h3>
    <%= link_to "査定に戻る", new_property_path %>
 <% end %>
 <div class='set-center'>
