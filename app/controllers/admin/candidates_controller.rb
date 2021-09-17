@@ -18,8 +18,7 @@ module Admin
 
       if @candidate_buyer.save && @offer.save
         flash[:success] = '買い手登録を完了しました。'
-        redirect_to admin_candidates_path
-
+        redirect_to new_admin_candidate_path
       else
         # エラーだったら買い手候補ページに飛ぶようにする。
         redirect_to admin_candidates_path
