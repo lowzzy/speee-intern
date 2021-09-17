@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sample</title>
+    <title>らくらく不動産売却</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+    <%= favicon_link_tag 'favicon.ico' %>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -20,7 +20,7 @@
     <%= yield %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= debug(params) if Rails.env.development? %>
+    <%# <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
