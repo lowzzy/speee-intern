@@ -1,5 +1,10 @@
+![alt](./app/assets/images/logo.png)
+
 # らくらく不動産売却
+
 ### 9/6 ~ 9/17 , 2021
+
+[サービス概要](https://github.com/lowzzy/speee-intern/blob/375b8ab5639969fff15ed050d4c445dd68566520/2021-09-17%EF%BD%9Chammings_%E6%9C%80%E7%B5%82%E5%A0%B1%E5%91%8A.pdf)
 
 メインの Rails アプリケーション
 
