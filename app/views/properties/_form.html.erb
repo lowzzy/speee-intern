@@ -4,11 +4,11 @@
   <div class="float-two">
     <div class="form-group float-item me-2">
       <%= form.label '都道府県', class:"form-label" %>
-      <%= form.select :prefecture,  @prefectures_list, {}, {id: 'prefecture', class:'form-select'} %>
+      <%= form.select :prefecture,  @prefectures_list, {}, {id: 'property_prefecture', class:'form-select'} %>
     </div>
     <div id="city_select" class="form-group float-item ms-2">
       <%= form.label '都市', class:"form-label" %>
-      <%= form.select :city ,[[]] , {}, {id: 'city', class:'form-select'} %>
+      <%= form.select :city ,[[]] , {}, {id: 'property_city', class:'form-select'} %>
     </div>
   </div>
   <div class="form-group">

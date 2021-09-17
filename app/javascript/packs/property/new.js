@@ -2,7 +2,8 @@
 window.addEventListener('turbolinks:load', function(){
     // // input要素を取得
     var select_state = document.getElementById("property_prefecture",);
-    
+    console.log(select_state)
+
     // // イベント「input」を登録
     select_state.addEventListener("change",async function(){
         if (this.value > 0 && this.value < 10){
@@ -30,6 +31,7 @@ window.addEventListener('turbolinks:load', function(){
         var selectList = document.createElement("select");
         selectList.id = "property_city";
         selectList.name = "property[city]";
+        selectList.className = "form-select"
         myParent.appendChild(selectList);
 
         //Create and append the options
