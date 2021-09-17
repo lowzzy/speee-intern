@@ -1,5 +1,43 @@
-<h1>らくらく不動産売却</h1>
-<h2>（プロモーションページ）</h2>
-
-<%= link_to '無料で自動査定する', new_property_path,data: {"turbolinks" => false} %> |
-<%= link_to 'ログイン', new_user_session_path %>
+   <div class="hero">
+     <div class="hero-content">
+       <h1>らくらく<br>　家を売却。</h1>
+       <p>手放したい家がありますか？<br>らくらく不動産売却は<br>めんどうな売却手続きをすべて代行します。</p>
+       <div class="hero-button">
+         <%= link_to '1分で査定する（無料）', new_property_path,data: {"turbolinks" => false}, class:'btn-lg fw-bold btn-primary p-3 text-decoration-none' %>
+       </div>
+     </div>
+     <%= image_tag 'hero.jpg', class:"hero-vector"%>
+   </div>
+   </div>
+   <div class="feature">
+     <h4>サービスの特徴</h4>
+     <div class="section">
+       <div class="feature-content">
+         <div class="feature-item">
+           <i class="material-icons feature-image">devices</i>
+           <h6>売却完了まですべて代行</h6>
+           <p>一度お申し込みいただくと、あとは売却完了までスマートフォンやパソコンだけで完結。</p>
+         </div>
+         <div class="feature-item">
+           <i class="material-icons feature-image">notifications</i>
+           <h6>売却までの進捗状況がひと目でわかる</h6>
+           <p>売却代行中、あなたの家の売却状況をすぐにお知らせ。</p>
+         </div>
+         <div class="feature-item">
+           <i class="material-icons feature-image">paid</i>
+           <h6>最適な不動産を選定</h6>
+           <p>複数の不動産会社を比較し、最も良い条件で家を売却。価格に満足いただけない場合は売却をキャンセルできます。</p>
+         </div>
+       </div>
+     </div>
+   </div>
+   <div class="wrapper">
+     <div class="footer-promo">
+       <div class="footer-promo-content section">
+         <h4 class="promo-title my-5">まずは査定してみませんか？</h4>
+         <div class="m-5">
+           <%= link_to '1分で査定する（無料）', new_property_path,data: {"turbolinks" => false}, class:'btn-lg fw-bold btn-primary p-3 text-decoration-none' %>
+         </div>
+       </div>
+     </div>
+   </div>
