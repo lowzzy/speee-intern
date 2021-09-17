@@ -1,4 +1,7 @@
+![alt](./app/assets/images/logo.png)
+
 # らくらく不動産売却
+
 ### 9/6 ~ 9/17 , 2021
 
 メインの Rails アプリケーション
