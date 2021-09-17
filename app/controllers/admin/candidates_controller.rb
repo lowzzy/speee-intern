@@ -7,7 +7,7 @@ module Admin
     def new
       @candidate_buyer = CandidateBuyer.new
       @offer = @candidate_buyer.build_offer
-      @user = User.find(params[:user_id])
+      @users_name_id = User.pluck(:name, :id)
     end
 
     # Post 買い手候補登録
