@@ -1,4 +1,17 @@
-# Sample App
+![alt](./app/assets/images/logo.png)
+
+# らくらく不動産売却
+
+### 9/6 ~ 9/17 , 2021
+
+[サービス概要](https://github.com/lowzzy/speee-intern/blob/375b8ab5639969fff15ed050d4c445dd68566520/2021-09-17%EF%BD%9Chammings_%E6%9C%80%E7%B5%82%E5%A0%B1%E5%91%8A.pdf)
+
+### Contributors
+
+![[lowzzy](https://github.com/lowzzy/)](./lowzzy.png)
+![[tak-ka3](https://github.com/tak-ka3/)](./tak-ka3.png)
+![[RS3030](https://github.com/RS3030/)](./RS3030.png)
+![[AmiYamamot0](https://github.com/AmiYamamot0/)](./AmiYamamot0.png)
 
 メインの Rails アプリケーション
 
