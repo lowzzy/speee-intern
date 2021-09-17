@@ -4,9 +4,7 @@
 <%= link_to "机上査定結果登録", new_admin_assessment_path %> 
 <%= link_to "買い手候補登録", user_select_admin_candidates_path %>
 
-<p>不動産リスト</p>
-<p>ユーザーリスト</p>
-<%= link_to '対応リスト', admin_question_path %>
+<%= link_to 'ユーザーリスト', admin_users_path %>
 <div>
 <h3>---------------------</h3>
 <%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %>
