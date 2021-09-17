@@ -10,19 +10,19 @@ class PropertiesController < ApplicationController
     @property = Property.new(property_params)
     type = @property.floor_plan
 
-    if type == '1'
-      @type = ['宅地(土地と建物)']
-    elsif type == '2' || type == '4'
-      @type = ['宅地(土地)', '農地']
-    else
-      @type = ['中古マンション等']
-    end
+    @type = if type == '1'
+              ['宅地(土地と建物)']
+            elsif %w[2 4].include?(type)
+              ['宅地(土地)', '農地']
+            else
+              ['中古マンション等']
+            end
 
     if @property.save
       flash[:info] = '登録が完了しました'
       # ここにapiの処理を書きたい
       retry_on_error { nearly }
-      
+
       render :price
     else
       flash[:info] = "入力に誤りが含まれています : #{@property.errors.full_messages.join('. ')}"
