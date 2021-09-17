@@ -11,3 +11,4 @@
 		<%= button_to "ステータスを次に進める", admin_user_path(id: u.id), data: { confirm: "進めるけど本当にok?" }, method: :put %>
 	<% end %>
 <% end %>
+<%= link_to 'ホーム' ,admin_root_path, method: :get %>

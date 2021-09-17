@@ -1,22 +1,36 @@
 <h1>買い手候補登録</h1>
 <%= form_with model: [:admin, @candidate_buyer], url: admin_candidates_url, local: true do |form| %>
+    <p>
     <%= form.label :name, "名前" %>
     <%= form.text_field :name %>
+    </p>
+    <p>
 
     <%= form.label :address, "住所" %>
     <%= form.text_field :address %>
+    </p>
+    <p>
 
     <%= form.label :price, "希望買取価格" %>
     <%= form.number_field :price %>円
+    </p>
+    <p>
 
     <%= form.label :transacted_on, "取引日" %>
     <%= form.datetime_select :transacted_on %>
+    </p>
+    <p>
 
     <%= form.label :hearing, "ヒアリング内容" %>
     <%= form.text_area :hearing %>
+    </p>
+    <p>
 
-    <%= form.hidden_field :user_id, :value => @user.id %>
+    <%# <%= form.hidden_field :user_id, :value => @user.id %> 
+    <%= form.label :user_id, "売り手(ユーザ)名" %>
+    <%= form.select :user_id, @users_name_id  %>
 
+    </p>
     <br><br>
     <%= form.submit "登録", data: { disable_with: 'Submitting...' } %>
 <% end %>

@@ -2,9 +2,10 @@
 
 <%= link_to "不動産会社登録", new_admin_agency_path %>
 <%= link_to "机上査定結果登録", new_admin_assessment_path %> 
-<%= link_to "買い手候補登録", user_select_admin_candidates_path %>
+<%= link_to "買い手候補登録", new_admin_candidate_path %>
 
 <%= link_to 'ユーザーリスト', admin_users_path %>
+<%= link_to '不動産会社リスト', admin_agencies_path %>
 <div>
 <h3>---------------------</h3>
 <%= link_to "ログアウト", destroy_admin_user_session_path, method: :delete %>
